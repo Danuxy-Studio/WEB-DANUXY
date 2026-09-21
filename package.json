@@ -1,0 +1,13 @@
+{
+    "name": "danuxy-studio",
+    "version": "1.0.0",
+    "description": "Website portofolio Danuxy Studio dengan EJS",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "ejs": "^3.1.10",
+        "express": "^4.21.2"
+    }
+}

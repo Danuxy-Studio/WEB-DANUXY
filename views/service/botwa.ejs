@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bot WhatsApp - Danuxy Studio</title>
+  <link rel="icon" href="/public/images/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/public/style.css" />
+</head>
+<body>
+  <div class="loading-screen" id="loadingScreen"><div class="spinner"></div><p class="loading-text">Memuat Bot WhatsApp...</p></div>
+  <div id="mainContent" style="display:none;">
+    <%- include('../partials/page-header') %>
+    <section class="hero" style="padding-bottom:20px;"><div class="container hero__content"><h1 class="hero__title">Bot WhatsApp</h1><p class="hero__desc">Otomatisasi chat, stiker, download media, dan pengelolaan grup dalam satu bot yang praktis.</p><a href="https://wa.me/message/BGEICSH5MWY6N1" target="_blank" class="btn btn--wa"><i class="fab fa-whatsapp"></i> Konsultasi Sekarang</a></div></section>
+    <section class="section"><div class="container"><div class="section__head"><p class="section__label">FITUR LAYANAN</p><h2 class="section__title">Bot yang Siap Membantu</h2></div><div class="services__grid">
+      <div class="service-card"><div class="service-card__icon service-card__icon--wa"><i class="fas fa-comments"></i></div><h3>Balas Otomatis</h3><p>Jawab pesan pelanggan dengan respons yang cepat dan teratur.</p></div>
+      <div class="service-card"><div class="service-card__icon" style="background:rgba(6,182,212,.15);color:var(--accent);"><i class="fas fa-sticky-note"></i></div><h3>Stiker &amp; Media</h3><p>Buat stiker dan unduh media langsung dari chat WhatsApp.</p></div>
+      <div class="service-card"><div class="service-card__icon" style="background:rgba(245,158,11,.15);color:#f59e0b;"><i class="fas fa-shield-alt"></i></div><h3>Kelola Grup</h3><p>Bantu moderasi grup dengan fitur anti-spam dan pengelolaan link.</p></div>
+    </div></div></section>
+    <%- include('../partials/site-footer') %>
+  </div>
+  <script src="/public/script.js"></script>
+</body>
+</html>

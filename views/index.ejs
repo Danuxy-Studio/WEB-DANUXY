@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danuxy Studio - Layanan Digital Mudah</title>
+  <link rel="icon" href="/public/images/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/public/style.css" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner"></div>
+    <p class="loading-text">Membuka Danuxy Studio...</p>
+  </div>
+
+  <!-- KONTEN UTAMA -->
+  <div id="mainContent" style="display:none;">
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+      <div class="container header__inner">
+        <a href="/" class="header__logo">
+          <img src="/public/images/logo.png" alt="Danuxy Studio" width="44" height="44" />
+          <span>Danuxy Studio</span>
+        </a>
+        
+        <div class="header__actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Ganti Tema">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Buka Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+        <nav class="nav" id="nav">
+          <a href="/"><i class="fas fa-home"></i> Beranda Utama</a>
+          <a href="/komisan"><i class="fas fa-robot"></i> Bot Komi-San</a>
+          <a href="/wa"><i class="fab fa-whatsapp"></i> Saluran WA</a>
+          <div class="nav__section-label">LAYANAN KAMI</div>
+          <a href="/botwa" class="nav__service-link"><i class="fab fa-whatsapp"></i> Bot WhatsApp</a>
+          <a href="/minecraft" class="nav__service-link"><i class="fas fa-cubes"></i> Server Minecraft</a>
+          <a href="/website" class="nav__service-link"><i class="fas fa-globe"></i> Pembuatan Website</a>
+          <a href="https://wa.me/message/BGEICSH5MWY6N1" target="_blank" class="btn-nav-cta">
+            <i class="fab fa-whatsapp"></i> Chat Admin
+          </a>
+        </nav>
+      </div>
+    </header>
+    <div class="nav__overlay" id="navOverlay"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero__content">
+        <h1 class="hero__title">
+          Solusi Digital <br /><span class="highlight">Mudah &amp; Praktis</span>
+        </h1>
+        <p class="hero__desc">
+          Layanan Bot WhatsApp otomatis, Server Game Minecraft, dan bantuan teknologi langsung tanpa ribet.
+        </p>
+        <div class="hero__actions">
+          <a href="/komisan" class="btn btn--primary">
+            <i class="fas fa-robot"></i> Coba Bot Komi-San
+          </a>
+          <a href="/wa" class="btn btn--wa">
+            <i class="fab fa-whatsapp"></i> Saluran WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYANAN SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__label">PILIHAN LAYANAN</p>
+          <h2 class="section__title">Apa Yang Anda Butuhkan?</h2>
+        </div>
+        <div class="services__grid">
+          
+          <div class="service-card" onclick="window.location.href='/botwa';" style="cursor: pointer;">
+            <div class="service-card__icon service-card__icon--wa">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3>Bot WhatsApp</h3>
+            <p>Otomatis balas pesan, buat stiker cepat, dan kelola grup 24 jam nonstop.</p>
+          </div>
+
+          <div class="service-card" onclick="window.location.href='/minecraft';" style="cursor: pointer;">
+            <div class="service-card__icon service-card__icon--minecraft">
+              <i class="fas fa-cubes"></i>
+            </div>
+            <h3>Server Minecraft</h3>
+            <p>Bikin dan optimasi server Minecraft biar main lancar tanpa lag.</p>
+          </div>
+
+          <div class="service-card" onclick="window.location.href='/website';" style="cursor: pointer;">
+            <div class="service-card__icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Pembuatan Website</h3>
+            <p>Website profesional, modern, dan responsif untuk kebutuhan bisnis atau personal.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS / TENTANG -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__label">TENTANG KAMI</p>
+          <h2 class="section__title">Terpercaya &amp; Cepat</h2>
+        </div>
+        <div class="about__stats">
+          <div class="stat">
+            <div class="stat__number">15+</div>
+            <div class="stat__label">Proyek Selesai</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">12+</div>
+            <div class="stat__label">Klien Puas</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">24/7</div>
+            <div class="stat__label">Aktif Terus</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <%- include('partials/site-footer') %>
+
+  </div>
+
+  <script src="/public/script.js"></script>
+</body>
+</html>

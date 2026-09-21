@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Server Minecraft - Danuxy Studio</title>
+  <link rel="icon" href="/public/images/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /><link rel="stylesheet" href="/public/style.css" />
+</head>
+<body>
+  <div class="loading-screen" id="loadingScreen"><div class="spinner"></div><p class="loading-text">Memuat Server Minecraft...</p></div>
+  <div id="mainContent" style="display:none;">
+    <%- include('../partials/page-header') %>
+    <section class="hero" style="padding-bottom:20px;"><div class="container hero__content"><h1 class="hero__title">Server Minecraft</h1><p class="hero__desc">Bangun server Minecraft yang stabil, seru, dan siap dimainkan bersama komunitasmu.</p><a href="https://wa.me/message/BGEICSH5MWY6N1" target="_blank" class="btn btn--primary"><i class="fab fa-whatsapp"></i> Konsultasi Server</a></div></section>
+    <section class="section"><div class="container"><div class="section__head"><p class="section__label">SOLUSI SERVER</p><h2 class="section__title">Main Lebih Lancar</h2></div><div class="services__grid">
+      <div class="service-card"><div class="service-card__icon service-card__icon--minecraft"><i class="fas fa-server"></i></div><h3>Setup Server</h3><p>Konfigurasi server Java atau Bedrock sesuai kebutuhan komunitasmu.</p></div>
+      <div class="service-card"><div class="service-card__icon" style="background:rgba(34,197,94,.15);color:var(--wa-green);"><i class="fas fa-gauge-high"></i></div><h3>Optimasi Performa</h3><p>Kurangi lag dan atur resource agar server tetap responsif.</p></div>
+      <div class="service-card"><div class="service-card__icon" style="background:rgba(236,72,153,.15);color:var(--secondary);"><i class="fas fa-puzzle-piece"></i></div><h3>Plugin &amp; Mod</h3><p>Pasang dan sesuaikan plugin, mod, serta fitur gameplay pilihanmu.</p></div>
+    </div></div></section>
+    <%- include('../partials/site-footer') %>
+  </div>
+  <script src="/public/script.js"></script>
+</body>
+</html>

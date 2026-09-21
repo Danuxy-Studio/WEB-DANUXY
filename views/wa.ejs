@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saluran WhatsApp Resmi - Danuxy Studio</title>
+  <link rel="icon" href="/public/images/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/public/style.css" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner"></div>
+    <p class="loading-text">Memuat Saluran WA...</p>
+  </div>
+
+  <div id="mainContent" style="display:none;">
+
+    <%- include('partials/page-header') %>
+
+    <section class="hero" style="padding-bottom: 20px;">
+      <div class="container hero__content">
+        <h1 class="hero__title">Saluran WhatsApp</h1>
+        <p class="hero__desc">Pilih saluran yang ingin Anda ikuti untuk dapat berita terbaru.</p>
+      </div>
+    </section>
+
+    <!-- DAFTAR SALURAN -->
+    <section class="section" style="padding-top:10px;">
+      <div class="container">
+        <div style="display:flex; flex-direction:column; gap:16px; max-width:550px; margin:0 auto;">
+
+          <!-- Saluran 1 -->
+          <a href="https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L" target="_blank" class="service-card" style="flex-direction:row; justify-content:space-between; text-align:left; padding:20px;">
+            <div style="display:flex; align-items:center; gap:16px;">
+              <div class="service-card__icon service-card__icon--wa" style="margin-bottom:0; width:56px; height:56px; font-size:1.6rem;">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1.15rem; margin-bottom:2px;">Danuxy Digital</h3>
+                <p style="font-size:0.9rem;">Informasi Umum &amp; Layanan</p>
+              </div>
+            </div>
+            <i class="fas fa-chevron-right" style="font-size:1.2rem; color:var(--text-muted);"></i>
+          </a>
+
+          <!-- Saluran 2 -->
+          <a href="https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n" target="_blank" class="service-card" style="flex-direction:row; justify-content:space-between; text-align:left; padding:20px;">
+            <div style="display:flex; align-items:center; gap:16px;">
+              <div class="service-card__icon" style="margin-bottom:0; width:56px; height:56px; font-size:1.6rem; background:var(--primary-light); color:var(--primary);">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1.15rem; margin-bottom:2px;">Bot Komi-San</h3>
+                <p style="font-size:0.9rem;">Update &amp; Berita Bot WhatsApp</p>
+              </div>
+            </div>
+            <i class="fas fa-chevron-right" style="font-size:1.2rem; color:var(--text-muted);"></i>
+          </a>
+
+          <!-- Saluran 3 -->
+          <a href="https://whatsapp.com/channel/0029Vb8UiHp0waju0U0dJU0j" target="_blank" class="service-card" style="flex-direction:row; justify-content:space-between; text-align:left; padding:20px;">
+            <div style="display:flex; align-items:center; gap:16px;">
+              <div class="service-card__icon" style="margin-bottom:0; width:56px; height:56px; font-size:1.6rem; background:rgba(6, 182, 212, 0.15); color:var(--accent);">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1.15rem; margin-bottom:2px;">Nuxy MC</h3>
+                <p style="font-size:0.9rem;">Seputar Streamer &amp; Game</p>
+              </div>
+            </div>
+            <i class="fas fa-chevron-right" style="font-size:1.2rem; color:var(--text-muted);"></i>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <%- include('partials/site-footer') %>
+
+  </div>
+
+  <script src="/public/script.js"></script>
+</body>
+</html>

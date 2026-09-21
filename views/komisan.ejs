@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Komi-San Bot - Asisten WhatsApp Pintar</title>
+  <link rel="icon" href="/public/images/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/public/style.css" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner"></div>
+    <p class="loading-text">Membuka Komi-San Bot...</p>
+  </div>
+
+  <div id="mainContent" style="display:none;">
+
+    <%- include('partials/page-header') %>
+
+    <!-- HERO BOT -->
+    <section class="hero" style="padding-bottom:20px;">
+      <div class="container hero__content">
+        <h1 class="hero__title">
+          KOMI-SAN BOT
+        </h1>
+        <p class="hero__desc">
+          Bisa diajak ngobrol (AI), buat stiker otomatis, download video TikTok &amp; YouTube, serta main game di grup WA!
+        </p>
+        <div class="hero__badge" style="font-size:1.2rem; padding:10px 24px; background:var(--card); color:var(--primary); border-color:var(--border-strong);">
+          Rp 10.000 <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted);">/ Bulan</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOMBOL AKSI UTAMA -->
+    <section class="section" style="padding-top:10px;">
+      <div class="container">
+        <div style="display:flex; flex-direction:column; gap:14px; max-width:480px; margin:0 auto;">
+          
+          <a href="https://wa.me/6283188490137?text=Halo%20min%2C%20saya%20mau%20sewa%20KOMI-SAN%20BOT%20nyaa%20~"
+             target="_blank" class="btn btn--wa" style="font-size:1.2rem; padding:18px;">
+            <i class="fab fa-whatsapp"></i> KLIK UNTUK SEWA BOT
+          </a>
+
+          <a href="https://chat.whatsapp.com/EQbGwWlngo79YtfvUjLsCs"
+             target="_blank" class="btn btn--outline" style="font-size:1.05rem;">
+            <i class="fas fa-users" style="color:var(--primary);"></i> Masuk Grup Bot Gratis
+          </a>
+
+          <a href="https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n"
+             target="_blank" class="btn btn--outline" style="font-size:1.05rem;">
+            <i class="fas fa-bullhorn" style="color:#0284C7;"></i> Saluran Info Bot
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FITUR UTAMA -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__label">FITUR LENGKAP</p>
+          <h2 class="section__title">Apa Saja Yang Bisa Dilakukan?</h2>
+        </div>
+
+        <div class="services__grid">
+          
+          <div class="service-card">
+            <div class="service-card__icon"><i class="fas fa-comments"></i></div>
+            <h3>Tanya Jawab AI</h3>
+            <p>Jawab pertanyaan otomatis dengan AI pintar secara cepat.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" style="background:rgba(6, 182, 212, 0.15); color:var(--accent);"><i class="fas fa-download"></i></div>
+            <h3>Download Video</h3>
+            <p>Unduh video dari TikTok &amp; YouTube tanpa watermark.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" style="background:rgba(236, 72, 153, 0.15); color:var(--secondary);"><i class="fas fa-sticky-note"></i></div>
+            <h3>Pembuat Stiker</h3>
+            <p>Ubah gambar apa saja menjadi stiker WhatsApp langsung.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" style="background:rgba(34, 197, 94, 0.15); color:var(--wa-green);"><i class="fas fa-gamepad"></i></div>
+            <h3>19+ Game Seru</h3>
+            <p>Main tebak-tebakan dan game grup langsung dari chat.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" style="background:rgba(245, 158, 11, 0.15); color:#F59E0B;"><i class="fas fa-shield-alt"></i></div>
+            <h3>Keamanan Grup</h3>
+            <p>Fitur anti-spam dan hapus link asing di grup WA.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <%- include('partials/site-footer') %>
+
+  </div>
+
+  <script src="/public/script.js"></script>
+</body>
+</html>
