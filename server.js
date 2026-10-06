@@ -19,6 +19,15 @@ app.use("/public", express.static(path.join(__dirname, "public"), {
     etag: true
 }));
 
+// ===== EDGE CDN CACHING FOR VERCEL (ELIMINATES COLD START) =====
+app.use(function (req, res, next) {
+    if (req.method === "GET") {
+        // Cache HTML at Vercel Edge for 24h, browser for 1h, with 7 days stale-while-revalidate
+        res.setHeader("Cache-Control", "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800");
+    }
+    next();
+});
+
 // ===== LANGUAGE DETECTION MIDDLEWARE =====
 function getCookie(req, name) {
     if (!req.headers.cookie) return null;
