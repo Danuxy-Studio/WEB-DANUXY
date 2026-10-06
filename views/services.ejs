@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('partials/navbar') %>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label"><%= t.servicesPage.label %></p>
+        <h1 class="page-hero__title"><%= t.servicesPage.title %></h1>
+        <p class="page-hero__desc"><%= t.servicesPage.desc %></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+
+        <!-- WhatsApp & Automation -->
+        <div class="services-section fade-up">
+          <h2 class="services-section__title"><i class="fab fa-whatsapp"></i> <%= t.servicesPage.wa.title %></h2>
+          <p style="color:var(--text-muted); margin-bottom:20px; line-height:1.7;"><%= t.servicesPage.wa.desc %></p>
+          <div class="services-list">
+            <% t.servicesPage.wa.features.forEach(function(feat) { %>
+            <div class="service-item">
+              <h4><i class="fas fa-check-circle" style="color:var(--primary); font-size:0.9rem; margin-right:6px;"></i> Feature</h4>
+              <p><%= feat %></p>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- Minecraft -->
+        <div class="services-section fade-up">
+          <h2 class="services-section__title"><i class="fas fa-cubes"></i> <%= t.servicesPage.mc.title %></h2>
+          <p style="color:var(--text-muted); margin-bottom:20px; line-height:1.7;"><%= t.servicesPage.mc.desc %></p>
+          <div class="services-list">
+            <% t.servicesPage.mc.features.forEach(function(feat) { %>
+            <div class="service-item">
+              <h4><i class="fas fa-check-circle" style="color:var(--primary); font-size:0.9rem; margin-right:6px;"></i> Feature</h4>
+              <p><%= feat %></p>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- Web Development -->
+        <div class="services-section fade-up">
+          <h2 class="services-section__title"><i class="fas fa-globe"></i> <%= t.servicesPage.web.title %></h2>
+          <p style="color:var(--text-muted); margin-bottom:20px; line-height:1.7;"><%= t.servicesPage.web.desc %></p>
+          <div class="services-list">
+            <% t.servicesPage.web.features.forEach(function(feat) { %>
+            <div class="service-item">
+              <h4><i class="fas fa-check-circle" style="color:var(--primary); font-size:0.9rem; margin-right:6px;"></i> Feature</h4>
+              <p><%= feat %></p>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-section__title fade-up"><%= t.servicesPage.ctaTitle %></h2>
+        <p class="cta-section__desc fade-up"><%= t.servicesPage.ctaDesc %></p>
+        <a href="/contact" class="btn btn--primary fade-up"><%= t.servicesPage.ctaBtn %></a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>

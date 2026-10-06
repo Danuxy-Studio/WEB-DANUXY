@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('../partials/navbar') %>
+
+  <main id="main">
+    <article class="article">
+      <header class="article__header">
+        <p class="article__category"><%= article.category %></p>
+        <h1 class="article__title"><%= article.title %></h1>
+        <div class="article__meta">
+          <span><i class="far fa-calendar-alt"></i> <%= article.dateFormatted %></span>
+          <span>•</span>
+          <span><i class="far fa-user"></i> <%= article.author %></span>
+        </div>
+      </header>
+
+      <div class="article__body">
+        <%- article.content %>
+      </div>
+
+      <% if (typeof relatedArticles !== 'undefined' && relatedArticles.length > 0) { %>
+      <div class="related">
+        <h3><%= t.blog.relatedTitle %></h3>
+        <div class="articles-grid">
+          <% relatedArticles.forEach(function(rel) { %>
+          <a href="/blog/<%= rel.slug %>" class="article-card">
+            <div class="article-card__meta">
+              <span class="article-card__category"><%= rel.category %></span>
+              <span>•</span>
+              <time datetime="<%= rel.date %>"><%= rel.dateFormatted %></time>
+            </div>
+            <h3><%= rel.title %></h3>
+            <p><%= rel.excerpt %></p>
+          </a>
+          <% }); %>
+        </div>
+      </div>
+      <% } %>
+
+      <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);">
+        <a href="/blog" class="project-card__cta"><i class="fas fa-arrow-left"></i> <%= t.common.backToBlog %></a>
+      </div>
+    </article>
+  </main>
+
+  <%- include('../partials/footer') %>
+  <%- include('../partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>

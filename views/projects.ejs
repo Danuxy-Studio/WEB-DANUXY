@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('partials/navbar') %>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label"><%= t.projectsPage.label %></p>
+        <h1 class="page-hero__title"><%= t.projectsPage.title %></h1>
+        <p class="page-hero__desc"><%= t.projectsPage.desc %></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="projects-grid">
+          <% projects.forEach(function(project) { %>
+          <div class="project-card fade-up">
+            <div class="project-card__body">
+              <span class="project-card__category"><%= project.category %></span>
+              <h2 class="project-card__title"><%= project.name %></h2>
+              <div class="project-detail__meta">
+                <span class="project-detail__status project-detail__status--<%= project.statusClass %>"><%= project.status %></span>
+              </div>
+              <p class="project-card__desc"><%= project.longDescription || project.description %></p>
+
+              <% if (project.techStack && project.techStack.length) { %>
+              <div class="project-detail__meta" style="margin-top: 14px;">
+                <% project.techStack.forEach(function(tech) { %>
+                <span class="project-detail__tag"><%= tech %></span>
+                <% }); %>
+              </div>
+              <% } %>
+
+              <% if (project.features && project.features.length) { %>
+              <ul style="margin: 14px 0 18px 20px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
+                <% project.features.forEach(function(f) { %>
+                <li><%= f %></li>
+                <% }); %>
+              </ul>
+              <% } %>
+
+              <% if (project.slug === 'danuxycore') { %>
+              <div class="project-card__gallery" style="margin: 18px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                <div class="project-gallery-thumb lightbox-trigger" role="button" tabindex="0" data-lightbox-src="/public/images/danuxycore-bedrock.png" data-lightbox-caption="DanuxyCore Bedrock Edition Native Form UI — /warp Navigation" style="cursor: pointer;">
+                  <div style="position:relative; overflow:hidden; border-radius:var(--radius-md); border:1px solid var(--border);">
+                    <img src="/public/images/danuxycore-bedrock.png" alt="DanuxyCore Bedrock GUI Screenshot" style="width:100%; height:130px; object-fit:cover; display:block; transition:transform 0.25s;" loading="lazy" />
+                    <span style="position:absolute; top:8px; right:8px; width:26px; height:26px; background:rgba(2,6,23,0.7); backdrop-filter:blur(4px); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:0.7rem;"><i class="fas fa-expand"></i></span>
+                  </div>
+                  <span style="display:flex; align-items:center; gap:6px; font-size:0.75rem; color:var(--text-muted); margin-top:6px; font-weight:700;"><i class="fas fa-mobile-alt" style="color:#10b981;"></i> Bedrock Native Form UI</span>
+                </div>
+                <div class="project-gallery-thumb lightbox-trigger" role="button" tabindex="0" data-lightbox-src="/public/images/danuxycore-java.png" data-lightbox-caption="DanuxyCore Java 1.21.8+ Modern Dialog GUI — /warp Navigation" style="cursor: pointer;">
+                  <div style="position:relative; overflow:hidden; border-radius:var(--radius-md); border:1px solid var(--border);">
+                    <img src="/public/images/danuxycore-java.png" alt="DanuxyCore Java 1.21.8+ Dialog GUI Screenshot" style="width:100%; height:130px; object-fit:cover; display:block; transition:transform 0.25s;" loading="lazy" />
+                    <span style="position:absolute; top:8px; right:8px; width:26px; height:26px; background:rgba(2,6,23,0.7); backdrop-filter:blur(4px); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:0.7rem;"><i class="fas fa-expand"></i></span>
+                  </div>
+                  <span style="display:flex; align-items:center; gap:6px; font-size:0.75rem; color:var(--text-muted); margin-top:6px; font-weight:700;"><i class="fab fa-java" style="color:#ef4444;"></i> Java 1.21.8+ Dialog GUI</span>
+                </div>
+              </div>
+              <% } %>
+
+              <div class="project-card__actions" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:20px;">
+                <% if (project.link) { %>
+                <a href="<%= project.link %>" class="project-card__cta">
+                  <%= t.common.viewDetails %> <i class="fas fa-arrow-right"></i>
+                </a>
+                <% } %>
+
+                <% if (project.externalLink) { %>
+                <a href="<%= project.externalLink %>" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm" style="font-size:0.85rem; padding:8px 16px;">
+                  <i class="fab fa-whatsapp"></i> <%= t.common.visitNixi %> <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i>
+                </a>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-section__title"><%= t.projectsPage.ctaTitle %></h2>
+        <p class="cta-section__desc"><%= t.projectsPage.ctaDesc %></p>
+        <a href="/contact" class="btn btn--primary"><%= t.projectsPage.ctaBtn %></a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>

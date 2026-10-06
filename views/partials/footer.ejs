@@ -1,0 +1,90 @@
+<footer class="footer" id="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="/" class="footer__logo-link">
+        <img src="/public/images/logo-icon.png" alt="Danuxy Studio" width="36" height="36" />
+        <span>Danuxy Studio</span>
+      </a>
+      <p class="footer__tagline">
+        <%= t.site.tagline %>
+      </p>
+      <p class="footer__desc">
+        <%= t.site.statement %>
+      </p>
+    </div>
+
+    <div class="footer__nav">
+      <div class="footer__col">
+        <h4>
+          <%= lang==='en' ? 'Navigate' : 'Navigasi' %>
+        </h4>
+        <a href="/projects">
+          <%= t.nav.projects %>
+        </a>
+        <a href="/services">
+          <%= t.nav.services %>
+        </a>
+        <a href="/blog">
+          <%= t.nav.blog %>
+        </a>
+        <a href="/about">
+          <%= t.nav.about %>
+        </a>
+        <a href="/contact">
+          <%= t.nav.contact %>
+        </a>
+      </div>
+      <div class="footer__col">
+        <h4>
+          <%= lang==='en' ? 'Ecosystem' : 'Ekosistem' %>
+        </h4>
+        <a href="https://nixi.danuxy.com/" target="_blank" rel="noopener noreferrer">NIXI Platform <i
+            class="fas fa-external-link-alt" style="font-size:0.75rem;"></i></a>
+        <a href="/minecraft">Minecraft</a>
+      </div>
+      <div class="footer__col">
+        <h4>
+          <%= lang==='en' ? 'Legal' : 'Legalitas' %>
+        </h4>
+        <a href="/privacy">
+          <%= t.legal.privacyTitle %>
+        </a>
+        <a href="/terms">
+          <%= t.legal.termsTitle %>
+        </a>
+        <a href="/cookies">
+          <%= t.legal.cookiesTitle %>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__social">
+      <a href="https://wa.me/message/BGEICSH5MWY6N1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
+          class="fab fa-whatsapp"></i></a>
+      <a href="https://youtube.com/@nuxymc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i
+          class="fab fa-youtube"></i></a>
+      <a href="https://tiktok.com/@danuxy.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i
+          class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/danuxy_digital" target="_blank" rel="noopener noreferrer"
+        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>&copy; 2026 <%= t.common.copyright %>
+    </p>
+  </div>
+</footer>
+
+<!-- IMAGE LIGHTBOX MODAL (NO REDIRECT / IN-PAGE PREVIEW) -->
+<div id="imageLightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="lightbox__overlay" id="lightboxOverlay"></div>
+  <div class="lightbox__dialog">
+    <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Tutup preview">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="lightbox__content">
+      <img src="" alt="" class="lightbox__img" id="lightboxImg" />
+      <div class="lightbox__caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+</div>

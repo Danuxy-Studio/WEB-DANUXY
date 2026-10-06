@@ -1,0 +1,41 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title><%= typeof pageTitle !== 'undefined' ? pageTitle : (typeof t !== 'undefined' ? t.site.name : 'Danuxy Studio') %></title>
+<meta name="description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : (typeof t !== 'undefined' ? t.site.description : '') %>" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://danuxy.com<%= typeof canonicalPath !== 'undefined' ? canonicalPath : '' %>" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="<%= typeof ogType !== 'undefined' ? ogType : 'website' %>" />
+<meta property="og:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Danuxy Studio' %>" />
+<meta property="og:description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : '' %>" />
+<meta property="og:url" content="https://danuxy.com<%= typeof canonicalPath !== 'undefined' ? canonicalPath : '' %>" />
+<meta property="og:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : 'https://danuxy.com/public/images/og-image.jpg' %>" />
+<meta property="og:site_name" content="Danuxy Studio" />
+<meta property="og:locale" content="<%= typeof t !== 'undefined' && t.meta ? t.meta.ogLocale : 'id_ID' %>" />
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Danuxy Studio' %>" />
+<meta name="twitter:description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : '' %>" />
+<meta name="twitter:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : 'https://danuxy.com/public/images/og-image.jpg' %>" />
+
+<!-- Favicon -->
+<link rel="icon" href="/public/images/logo-icon.png" type="image/png" />
+<link rel="apple-touch-icon" href="/public/images/logo-icon.png" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<!-- Styles -->
+<link rel="stylesheet" href="/public/style.css" />
+
+<!-- JSON-LD -->
+<% if (typeof jsonLd !== 'undefined' && jsonLd) { %>
+<script type="application/ld+json"><%- JSON.stringify(jsonLd) %></script>
+<% } %>

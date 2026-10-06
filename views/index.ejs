@@ -1,144 +1,206 @@
 <!doctype html>
-<html lang="id">
+<html lang="<%= lang %>">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Danuxy Studio - Layanan Digital Mudah</title>
-  <link rel="icon" href="/public/images/logo.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="/public/style.css" />
+  <%- include('partials/head') %>
 </head>
 <body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
 
-  <!-- LOADING SCREEN -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="spinner"></div>
-    <p class="loading-text">Membuka Danuxy Studio...</p>
-  </div>
+  <%- include('partials/navbar') %>
 
-  <!-- KONTEN UTAMA -->
-  <div id="mainContent" style="display:none;">
-
-    <!-- HEADER -->
-    <header class="header" id="header">
-      <div class="container header__inner">
-        <a href="/" class="header__logo">
-          <img src="/public/images/logo.png" alt="Danuxy Studio" width="44" height="44" />
-          <span>Danuxy Studio</span>
-        </a>
-        
-        <div class="header__actions">
-          <button class="theme-toggle" id="themeToggle" aria-label="Ganti Tema">
-            <i class="fas fa-moon" id="themeIcon"></i>
-          </button>
-          <button class="hamburger" id="hamburger" aria-label="Buka Menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-
-        <nav class="nav" id="nav">
-          <a href="/"><i class="fas fa-home"></i> Beranda Utama</a>
-          <a href="/komisan"><i class="fas fa-robot"></i> Bot Komi-San</a>
-          <a href="/wa"><i class="fab fa-whatsapp"></i> Saluran WA</a>
-          <div class="nav__section-label">LAYANAN KAMI</div>
-          <a href="/botwa" class="nav__service-link"><i class="fab fa-whatsapp"></i> Bot WhatsApp</a>
-          <a href="/minecraft" class="nav__service-link"><i class="fas fa-cubes"></i> Server Minecraft</a>
-          <a href="/website" class="nav__service-link"><i class="fas fa-globe"></i> Pembuatan Website</a>
-          <a href="https://wa.me/message/BGEICSH5MWY6N1" target="_blank" class="btn-nav-cta">
-            <i class="fab fa-whatsapp"></i> Chat Admin
-          </a>
-        </nav>
-      </div>
-    </header>
-    <div class="nav__overlay" id="navOverlay"></div>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
+  <main id="main">
+    <!-- HERO WITH CYBER-LUMINOUS CANVAS -->
+    <section class="hero hero--cyber">
+      <canvas id="heroCyberCanvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__ambient-waves" aria-hidden="true"></div>
       <div class="container hero__content">
-        <h1 class="hero__title">
-          Solusi Digital <br /><span class="highlight">Mudah &amp; Praktis</span>
-        </h1>
-        <p class="hero__desc">
-          Layanan Bot WhatsApp otomatis, Server Game Minecraft, dan bantuan teknologi langsung tanpa ribet.
-        </p>
-        <div class="hero__actions">
-          <a href="/komisan" class="btn btn--primary">
-            <i class="fas fa-robot"></i> Coba Bot Komi-San
-          </a>
-          <a href="/wa" class="btn btn--wa">
-            <i class="fab fa-whatsapp"></i> Saluran WhatsApp
-          </a>
+        <div class="hero__logo-wrapper fade-up">
+          <div class="hero__logo-glow" aria-hidden="true"></div>
+          <div class="hero__logo-orbit" aria-hidden="true"></div>
+          <img src="/public/images/logo-icon.png" alt="Danuxy Studio Logo — Engineering Digital Experiences" class="hero__logo" width="88" height="88" />
+        </div>
+        <div class="hero__pill-motto fade-up">
+          <span class="motto-tag">BUILD</span>
+          <span class="motto-dot"></span>
+          <span class="motto-tag">CREATE</span>
+          <span class="motto-dot"></span>
+          <span class="motto-tag">GROW</span>
+        </div>
+        <h1 class="hero__title fade-up"><%= t.home.heroTitle %></h1>
+        <p class="hero__desc fade-up"><%= t.home.heroDesc %></p>
+        <div class="hero__actions fade-up">
+          <a href="/projects" class="btn btn--primary btn--glow"><i class="fas fa-rocket"></i> <%= t.common.exploreProjects %></a>
+          <a href="/contact" class="btn btn--outline"><i class="fas fa-paper-plane"></i> <%= t.common.letsWorkTogether %></a>
         </div>
       </div>
     </section>
 
-    <!-- LAYANAN SECTION -->
+    <!-- INTRO -->
     <section class="section">
       <div class="container">
-        <div class="section__head">
-          <p class="section__label">PILIHAN LAYANAN</p>
-          <h2 class="section__title">Apa Yang Anda Butuhkan?</h2>
-        </div>
-        <div class="services__grid">
-          
-          <div class="service-card" onclick="window.location.href='/botwa';" style="cursor: pointer;">
-            <div class="service-card__icon service-card__icon--wa">
-              <i class="fab fa-whatsapp"></i>
+        <div class="intro">
+          <div>
+            <p class="section__label"><%= t.home.aboutLabel %></p>
+            <h2 class="section__title"><%= t.home.aboutTitle %></h2>
+            <p class="section__desc"><%= t.home.aboutDesc %></p>
+            <div class="intro__philosophy">
+              <% t.home.philosophy.forEach(function(step, idx) { %>
+                <span class="intro__step"><%= step %></span>
+                <% if (idx < t.home.philosophy.length - 1) { %>
+                  <span class="intro__step"><i class="fas fa-chevron-right"></i></span>
+                <% } %>
+              <% }); %>
             </div>
-            <h3>Bot WhatsApp</h3>
-            <p>Otomatis balas pesan, buat stiker cepat, dan kelola grup 24 jam nonstop.</p>
           </div>
-
-          <div class="service-card" onclick="window.location.href='/minecraft';" style="cursor: pointer;">
-            <div class="service-card__icon service-card__icon--minecraft">
-              <i class="fas fa-cubes"></i>
-            </div>
-            <h3>Server Minecraft</h3>
-            <p>Bikin dan optimasi server Minecraft biar main lancar tanpa lag.</p>
-          </div>
-
-          <div class="service-card" onclick="window.location.href='/website';" style="cursor: pointer;">
-            <div class="service-card__icon">
-              <i class="fas fa-globe"></i>
-            </div>
-            <h3>Pembuatan Website</h3>
-            <p>Website profesional, modern, dan responsif untuk kebutuhan bisnis atau personal.</p>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- STATS / TENTANG -->
+    <!-- FEATURED PROJECTS -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__label"><%= t.home.featuredLabel %></p>
+          <h2 class="section__title"><%= t.home.featuredTitle %></h2>
+        </div>
+        <div class="projects-grid">
+          <% projects.forEach(function(project) { %>
+          <div class="project-card fade-up">
+            <div class="project-card__body">
+              <span class="project-card__category"><%= project.category %></span>
+              <h3 class="project-card__title"><%= project.name %></h3>
+              <p class="project-card__desc"><%= project.description %></p>
+              
+              <div class="project-card__actions" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:16px;">
+                <% if (project.link) { %>
+                <a href="<%= project.link %>" class="project-card__cta">
+                  <%= t.common.viewDetails %> <i class="fas fa-arrow-right"></i>
+                </a>
+                <% } %>
+
+                <% if (project.externalLink) { %>
+                <a href="<%= project.externalLink %>" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm" style="font-size:0.82rem; padding:8px 14px;">
+                  <i class="fab fa-whatsapp"></i> <%= t.common.visitNixi %> <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i>
+                </a>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="/projects" class="btn btn--ghost"><%= t.common.viewAllProjects %></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE BUILD -->
     <section class="section">
       <div class="container">
-        <div class="section__head">
-          <p class="section__label">TENTANG KAMI</p>
-          <h2 class="section__title">Terpercaya &amp; Cepat</h2>
+        <div class="section__head section__head--center">
+          <p class="section__label"><%= t.home.whatWeBuildLabel %></p>
+          <h2 class="section__title"><%= t.home.whatWeBuildTitle %></h2>
         </div>
-        <div class="about__stats">
-          <div class="stat">
-            <div class="stat__number">15+</div>
-            <div class="stat__label">Proyek Selesai</div>
+        <div class="category-grid">
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fab fa-whatsapp"></i></div>
+            <h3><%= t.home.categories.wa.title %></h3>
+            <p><%= t.home.categories.wa.desc %></p>
           </div>
-          <div class="stat">
-            <div class="stat__number">12+</div>
-            <div class="stat__label">Klien Puas</div>
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fas fa-cubes"></i></div>
+            <h3><%= t.home.categories.mc.title %></h3>
+            <p><%= t.home.categories.mc.desc %></p>
           </div>
-          <div class="stat">
-            <div class="stat__number">24/7</div>
-            <div class="stat__label">Aktif Terus</div>
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fas fa-globe"></i></div>
+            <h3><%= t.home.categories.web.title %></h3>
+            <p><%= t.home.categories.web.desc %></p>
+          </div>
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fas fa-flask"></i></div>
+            <h3><%= t.home.categories.exp.title %></h3>
+            <p><%= t.home.categories.exp.desc %></p>
           </div>
         </div>
       </div>
     </section>
 
-    <%- include('partials/site-footer') %>
+    <!-- STUDIO ADVANTAGES (WHY CHOOSE US) -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__label"><%= t.home.advantagesLabel %></p>
+          <h2 class="section__title"><%= t.home.advantagesTitle %></h2>
+        </div>
+        <div class="category-grid">
+          <% t.home.advantages.forEach(function(adv) { %>
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fas <%= adv.icon %>"></i></div>
+            <h3><%= adv.title %></h3>
+            <p><%= adv.desc %></p>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
 
-  </div>
+    <!-- LATEST ARTICLES -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__label"><%= t.home.articlesLabel %></p>
+          <h2 class="section__title"><%= t.home.articlesTitle %></h2>
+        </div>
+        <div class="articles-grid">
+          <% articles.forEach(function(article) { %>
+          <a href="/blog/<%= article.slug %>" class="article-card fade-up">
+            <div class="article-card__meta">
+              <span class="article-card__category"><%= article.category %></span>
+              <span>•</span>
+              <time datetime="<%= article.date %>"><%= article.dateFormatted %></time>
+            </div>
+            <h3><%= article.title %></h3>
+            <p><%= article.excerpt %></p>
+          </a>
+          <% }); %>
+        </div>
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="/blog" class="btn btn--ghost"><%= lang === 'en' ? 'View All Articles' : 'Lihat Semua Artikel' %></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION (GOOGLE TOP 1 RANKING RICH SNIPPETS) -->
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__label"><%= t.home.faqLabel %></p>
+          <h2 class="section__title"><%= t.home.faqTitle %></h2>
+        </div>
+        <div class="faq-grid">
+          <% t.home.faqList.forEach(function(faq, idx) { %>
+          <div class="faq-card fade-up">
+            <h3 class="faq-card__q"><i class="fas fa-circle-question"></i> <%= faq.q %></h3>
+            <p class="faq-card__a"><%= faq.a %></p>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-section__title fade-up"><%= t.home.ctaTitle %></h2>
+        <p class="cta-section__desc fade-up"><%= t.home.ctaDesc %></p>
+        <a href="/contact" class="btn btn--primary btn--glow fade-up"><%= t.home.ctaBtn %></a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/cookie-consent') %>
 
   <script src="/public/script.js"></script>
 </body>

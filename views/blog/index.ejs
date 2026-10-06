@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('../partials/navbar') %>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label"><%= t.blog.label %></p>
+        <h1 class="page-hero__title"><%= t.blog.title %></h1>
+        <p class="page-hero__desc"><%= t.blog.desc %></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="articles-grid">
+          <% articles.forEach(function(article) { %>
+          <a href="/blog/<%= article.slug %>" class="article-card fade-up">
+            <div class="article-card__meta">
+              <span class="article-card__category"><%= article.category %></span>
+              <span>•</span>
+              <time datetime="<%= article.date %>"><%= article.dateFormatted %></time>
+            </div>
+            <h3><%= article.title %></h3>
+            <p><%= article.excerpt %></p>
+            <span class="project-card__cta" style="margin-top: 14px;"><%= t.common.readMore %> <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-section__title"><%= t.blog.ctaTitle %></h2>
+        <p class="cta-section__desc"><%= t.blog.ctaDesc %></p>
+        <a href="/contact" class="btn btn--primary"><%= t.blog.ctaBtn %></a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+  <%- include('../partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>

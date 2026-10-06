@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('partials/navbar') %>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label"><%= t.contactPage.label %></p>
+        <h1 class="page-hero__title"><%= t.contactPage.title %></h1>
+        <p class="page-hero__desc"><%= t.contactPage.desc %></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="contact-grid fade-up">
+          <a href="https://wa.me/message/BGEICSH5MWY6N1" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card__icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <h3><%= t.contactPage.channels.wa.title %></h3>
+              <p><%= t.contactPage.channels.wa.desc %></p>
+            </div>
+          </a>
+          <a href="mailto:contact@danuxy.com" class="contact-card">
+            <div class="contact-card__icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h3><%= t.contactPage.channels.email.title %></h3>
+              <p>contact@danuxy.com — <%= t.contactPage.channels.email.desc %></p>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/danuxy_digital" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card__icon"><i class="fab fa-instagram"></i></div>
+            <div>
+              <h3><%= t.contactPage.channels.ig.title %></h3>
+              <p>@danuxy_digital — <%= t.contactPage.channels.ig.desc %></p>
+            </div>
+          </a>
+          <a href="https://youtube.com/@nuxymc" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card__icon"><i class="fab fa-youtube"></i></div>
+            <div>
+              <h3><%= t.contactPage.channels.yt.title %></h3>
+              <p>@nuxymc — <%= t.contactPage.channels.yt.desc %></p>
+            </div>
+          </a>
+          <a href="https://tiktok.com/@danuxy.com" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card__icon"><i class="fab fa-tiktok"></i></div>
+            <div>
+              <h3><%= t.contactPage.channels.tiktok.title %></h3>
+              <p>@danuxy.com — <%= t.contactPage.channels.tiktok.desc %></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-section__title">Direct WhatsApp</h2>
+        <p class="cta-section__desc"><%= lang === 'en' ? 'Direct message for faster, personalized technical discussions.' : 'Kirim pesan instan untuk respon cepat dan konsultasi langsung.' %></p>
+        <a href="https://wa.me/message/BGEICSH5MWY6N1" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          <i class="fab fa-whatsapp"></i> <%= t.contactPage.channels.wa.action %>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>

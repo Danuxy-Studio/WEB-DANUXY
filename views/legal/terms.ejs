@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('../partials/navbar') %>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label">Legal</p>
+        <h1 class="page-hero__title"><%= t.legal.termsTitle %></h1>
+        <p class="page-hero__desc"><%= t.legal.updated %></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="legal-content">
+          <% if (lang === 'en') { %>
+          <h2>1. Acceptance of Terms</h2>
+          <p>By accessing and utilizing <strong>danuxy.com</strong> and products or services provided by Danuxy Studio, you agree to be bound by these Terms of Service. If you do not agree to these terms, please discontinue using our services.</p>
+
+          <h2>2. Acceptable Use</h2>
+          <p>You agree to use our website, software products (including NIXI, DanuxyCore), and engineering services only for lawful purposes in accordance with applicable laws.</p>
+          <ul>
+            <li>Prohibited from engaging in illegal activities, fraudulent schemes, spam messaging, or malware distribution.</li>
+            <li>Prohibited from unauthorized reverse engineering or exploiting system vulnerabilities without written consent.</li>
+            <li>Prohibited from malicious actions disrupting system availability (such as DDoS attacks or bot flooding).</li>
+          </ul>
+
+          <h2>3. Intellectual Property</h2>
+          <p>All materials, software source code, documentation, trademarks, and logos of Danuxy Studio displayed on this site are the intellectual property of Danuxy Studio or its licensors.</p>
+
+          <h2>4. Limitation of Liability</h2>
+          <p>Our services and software experiments are provided "as is" and "as available" without warranties of any kind. Danuxy Studio is not liable for indirect damages, third-party network outages, or platform blocks.</p>
+
+          <h2>5. Contact</h2>
+          <p>For questions regarding these terms, please contact us via our <a href="/contact">Contact</a> page.</p>
+          <% } else { %>
+          <h2>1. Penerimaan Ketentuan</h2>
+          <p>Dengan mengakses atau menggunakan situs web <strong>danuxy.com</strong> dan produk atau layanan yang disediakan oleh Danuxy Studio, Anda menyatakan setuju untuk terikat oleh Syarat dan Ketentuan ini. Jika Anda tidak menyetujui ketentuan ini, harap hentikan penggunaan layanan.</p>
+
+          <h2>2. Penggunaan Layanan & Produk</h2>
+          <p>Anda setuju untuk menggunakan situs web, produk (termasuk NIXI, ekosistem Minecraft DanuxyCore), dan jasa development Danuxy Studio hanya untuk tujuan yang sah menurut hukum yang berlaku di Indonesia serta yurisdiksi Anda.</p>
+          <ul>
+            <li>Dilarang menggunakan layanan kami untuk aktivitas ilegal, penipuan, spam WhatsApp, atau penyebaran malware.</li>
+            <li>Dilarang melakukan reverse engineering atau upaya eksploitasi keamanan terhadap infrastruktur kami tanpa izin tertulis.</li>
+            <li>Dilarang melakukan tindakan yang dapat mengganggu ketersediaan layanan (misalnya serangan DDoS atau bot flooding).</li>
+          </ul>
+
+          <h2>3. Hak Kekayaan Intelektual</h2>
+          <p>Seluruh materi, aset grafis, kode sumber, dokumentasi, merek, dan logo Danuxy Studio yang ditampilkan di situs ini merupakan hak milik intelektual Danuxy Studio atau pemberi lisensinya, kecuali dinyatakan sebaliknya.</p>
+
+          <h2>4. Batasan Tanggung Jawab</h2>
+          <p>Layanan, produk open/community, dan eksperimen perangkat lunak kami disediakan "sebagaimana adanya" (<em>as is</em>) dan "sebagaimana tersedia" (<em>as available</em>) tanpa jaminan tersirat apa pun.</p>
+
+          <h2>5. Kontak</h2>
+          <p>Untuk pertanyaan atau permohonan lisensi, silakan hubungi tim Danuxy Studio melalui halaman <a href="/contact">Kontak</a>.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+  <%- include('../partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>

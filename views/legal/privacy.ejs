@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('../partials/navbar') %>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label">Legal</p>
+        <h1 class="page-hero__title"><%= t.legal.privacyTitle %></h1>
+        <p class="page-hero__desc"><%= t.legal.updated %></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="legal-content">
+          <% if (lang === 'en') { %>
+          <h2>1. Introduction</h2>
+          <p>Danuxy Studio ("we", "our") respects your privacy and is committed to protecting any personal data you share when accessing our official website at <strong>danuxy.com</strong> or using our services.</p>
+
+          <h2>2. Information We Collect</h2>
+          <ul>
+            <li><strong>Contact Details:</strong> Name, email address, or phone number voluntarily submitted through our contact forms or direct WhatsApp links.</li>
+            <li><strong>Technical Log Data:</strong> IP address, browser type, pages visited, and general system diagnostics for server stability and abuse prevention.</li>
+            <li><strong>Preferences:</strong> Theme settings (Dark / Light mode) and language selection saved locally in your browser.</li>
+          </ul>
+
+          <h2>3. Data Usage</h2>
+          <p>We use your information strictly to respond to inquiries, monitor server stability, and enhance website performance. We <strong>never</strong> sell or rent user data to third parties.</p>
+
+          <h2>4. Contact Us</h2>
+          <p>If you have any questions regarding this Privacy Policy, please reach out via our <a href="/contact">Contact</a> page.</p>
+          <% } else { %>
+          <h2>1. Pendahuluan</h2>
+          <p>Danuxy Studio ("kami") menghormati privasi Anda dan berkomitmen untuk melindungi informasi pribadi yang Anda bagikan saat mengakses situs web resmi kami di <strong>danuxy.com</strong> atau menggunakan layanan dan produk kami.</p>
+
+          <h2>2. Data yang Kami Kumpulkan</h2>
+          <ul>
+            <li><strong>Informasi Kontak:</strong> Nama, email, atau nomor telepon/WhatsApp yang Anda berikan secara sukarela saat menghubungi kami.</li>
+            <li><strong>Data Log Teknis:</strong> Alamat IP, jenis browser, halaman yang dikunjungi, dan data diagnostik umum untuk stabilitas server.</li>
+            <li><strong>Data Preferensi:</strong> Pengaturan tema (dark mode / light mode) dan preferensi bahasa yang disimpan di browser Anda.</li>
+          </ul>
+
+          <h2>3. Penggunaan Informasi</h2>
+          <p>Informasi yang terkumpul digunakan untuk merespons komunikasi Anda dan memastikan keandalan teknis sistem. Kami <strong>tidak pernah</strong> menjual data Anda kepada pihak ketiga.</p>
+
+          <h2>4. Hubungi Kami</h2>
+          <p>Untuk pertanyaan mengenai Kebijakan Privasi ini, silakan hubungi kami melalui halaman <a href="/contact">Kontak</a>.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+  <%- include('../partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('partials/navbar') %>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label"><%= t.minecraft.label %></p>
+        <h1 class="page-hero__title"><%= t.minecraft.title %></h1>
+        <p class="page-hero__desc"><%= t.minecraft.desc %></p>
+      </div>
+    </section>
+
+    <!-- DANUXYCORE & PLUGIN ECOSYSTEM -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__label">Plugin Ecosystem</p>
+          <h2 class="section__title"><%= t.minecraft.coreTitle %></h2>
+          <p class="section__desc"><%= t.minecraft.coreDesc %></p>
+        </div>
+
+        <div class="mc-feature-grid">
+          <% t.minecraft.features.forEach(function(feat, idx) { 
+              const icons = ["fa-window-restore", "fa-compass", "fa-network-wired", "fa-microchip"];
+          %>
+          <div class="mc-feature fade-up">
+            <div class="mc-feature__icon"><i class="fas <%= icons[idx % icons.length] %>"></i></div>
+            <h3><%= feat.title %></h3>
+            <p><%= feat.desc %></p>
+          </div>
+          <% }); %>
+        </div>
+
+        <!-- DUAL NATIVE GUI SHOWCASE -->
+        <div class="mc-showcase fade-up" style="margin-top: 48px;">
+          <div class="mc-showcase__header">
+            <span class="badge badge--tech"><i class="fas fa-layer-group"></i> DUAL NATIVE UI ENGINE</span>
+            <h3><%= lang === 'en' ? 'Two Platforms, Zero Compromises' : 'Dua Platform, Nol Kompromi' %></h3>
+            <p><%= lang === 'en' 
+                ? 'DanuxyCore intelligently detects the connecting client and dynamically dispatches the optimal native GUI interface.' 
+                : 'DanuxyCore secara cerdas mendeteksi klien pemain dan merender antarmuka GUI native yang paling optimal sesuai platform mereka.' %></p>
+          </div>
+          <div class="mc-showcase__grid">
+            <div class="mc-showcase__card">
+              <div class="mc-showcase__pill"><i class="fab fa-java"></i> Java Edition 1.21.8+</div>
+              <h4>Modern Dialog GUI</h4>
+              <p><%= lang === 'en' 
+                  ? 'Replaces obsolete chest menus with Minecraft 1.21.8+ modern dialog screens featuring native button layouts and dynamic hover tooltips.' 
+                  : 'Menggantikan GUI Chest kuno dengan layar dialog modern Minecraft 1.21.8+ yang dilengkapi susunan tombol native dan tooltip dinamis.' %></p>
+              
+              <div class="mc-screenshot-frame lightbox-trigger" role="button" tabindex="0" data-lightbox-src="/public/images/danuxycore-java.png" data-lightbox-caption="DanuxyCore Java 1.21.8+ Modern Dialog GUI — /warp Navigation">
+                <img src="/public/images/danuxycore-java.png" alt="DanuxyCore Modern Dialog GUI Java 1.21.8+ In-Game Screenshot" class="mc-screenshot-img" loading="lazy" />
+                <div class="mc-screenshot-caption">
+                  <span><i class="fab fa-java"></i> Java 1.21.8+ Dialog UI Preview</span>
+                  <button type="button" class="mc-screenshot-zoom" aria-label="Lihat ukuran penuh"><i class="fas fa-expand"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mc-showcase__card">
+              <div class="mc-showcase__pill mc-showcase__pill--bedrock"><i class="fas fa-mobile-alt"></i> Bedrock Edition (PE & Console)</div>
+              <h4>Native Form & Modal UI</h4>
+              <p><%= lang === 'en' 
+                  ? 'Translates commands seamlessly into native Bedrock modal forms via Geyser/Floodgate with responsive touch-friendly navigation.' 
+                  : 'Menerjemahkan perintah secara mulus ke antarmuka Form native Bedrock via Geyser/Floodgate yang ramah layar sentuh dan kontroler.' %></p>
+              
+              <div class="mc-screenshot-frame lightbox-trigger" role="button" tabindex="0" data-lightbox-src="/public/images/danuxycore-bedrock.png" data-lightbox-caption="DanuxyCore Bedrock Edition Native Form UI — /warp Navigation">
+                <img src="/public/images/danuxycore-bedrock.png" alt="DanuxyCore Native Form UI Bedrock Edition In-Game Screenshot" class="mc-screenshot-img" loading="lazy" />
+                <div class="mc-screenshot-caption">
+                  <span><i class="fas fa-mobile-alt"></i> Bedrock Native Form UI Preview</span>
+                  <button type="button" class="mc-screenshot-zoom" aria-label="Lihat ukuran penuh"><i class="fas fa-expand"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVER ARCHITECTURE & CROSS-PLAY -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__label">Server Stack</p>
+          <h2 class="section__title"><%= lang === 'en' ? 'Engineered for Stability & Low Latency' : 'Dirancang untuk Stabilitas & Latensi Rendah' %></h2>
+          <p class="section__desc">
+            <%= lang === 'en' 
+                ? 'Modern server architectures leveraging Paper, Velocity reverse proxies, and Geyser-Floodgate translation layer.'
+                : 'Arsitektur modern mengadopsi Paper, Velocity proxy, dan translation layer Geyser-Floodgate.' %>
+          </p>
+        </div>
+
+        <div class="category-grid">
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fas fa-server"></i></div>
+            <h3>Paper & Purpur</h3>
+            <p><%= lang === 'en' ? 'Asynchronous chunk loading and optimized entity ticking.' : 'Chunk loading asinkron dan entity tick yang sangat optimal.' %></p>
+          </div>
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fas fa-bolt"></i></div>
+            <h3>Velocity Proxy</h3>
+            <p><%= lang === 'en' ? 'High-throughput modern proxy network with packet compression.' : 'Proxy modern berkecepatan tinggi dengan kompresi paket efisien.' %></p>
+          </div>
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fas fa-mobile-alt"></i></div>
+            <h3>Geyser & Floodgate</h3>
+            <p><%= lang === 'en' ? 'Seamless cross-play bridging Bedrock mobile/console to Java.' : 'Dukungan cross-play pemain mobile & konsol ke server Java.' %></p>
+          </div>
+          <div class="category-card fade-up">
+            <div class="category-card__icon"><i class="fas fa-microchip"></i></div>
+            <h3>JVM Tuning</h3>
+            <p><%= lang === 'en' ? "Aikar's GC flags tuned for low-latency garbage collection pauses." : "Konfigurasi flag Aikar untuk mengurangi jeda garbage collection." %></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-section__title fade-up"><%= t.minecraft.ctaTitle %></h2>
+        <p class="cta-section__desc fade-up"><%= t.minecraft.ctaDesc %></p>
+        <a href="/contact" class="btn btn--primary fade-up"><%= t.minecraft.ctaBtn %></a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>

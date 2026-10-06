@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('partials/navbar') %>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label"><%= t.aboutPage.label %></p>
+        <h1 class="page-hero__title"><%= t.aboutPage.title %></h1>
+        <p class="page-hero__desc"><%= t.aboutPage.desc %></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="about-content">
+          <h2><%= t.aboutPage.storyTitle %></h2>
+          <p><%= t.aboutPage.storyP1 %></p>
+          <p><%= t.aboutPage.storyP2 %></p>
+
+          <h2><%= t.aboutPage.philosophyTitle %></h2>
+          <div class="intro__philosophy" style="margin: 20px 0;">
+            <% t.home.philosophy.forEach(function(step, idx) { %>
+              <span class="intro__step"><%= step %></span>
+              <% if (idx < t.home.philosophy.length - 1) { %>
+                <span class="intro__step"><i class="fas fa-chevron-right"></i></span>
+              <% } %>
+            <% }); %>
+          </div>
+
+          <p><%= t.aboutPage.processText %></p>
+
+          <h2><%= t.aboutPage.whatWeBuildTitle %></h2>
+          <p><%= t.aboutPage.whatWeBuildIntro %></p>
+          <ul>
+            <% t.aboutPage.projectsList.forEach(function(item) { %>
+            <li><%= item %></li>
+            <% }); %>
+          </ul>
+
+          <h2><%= t.aboutPage.techTitle %></h2>
+          <p><%= t.aboutPage.techDesc %></p>
+          <ul>
+            <li>Node.js, Express, Next.js</li>
+            <li>MySQL, MongoDB</li>
+            <li>Java (Paper / Velocity Minecraft plugin development)</li>
+            <li>HTML5, CSS3, Modern JavaScript</li>
+            <li>Linux VPS management, Docker, & server optimization</li>
+          </ul>
+
+          <h2><%= t.aboutPage.principlesTitle %></h2>
+          <ul>
+            <% t.aboutPage.principles.forEach(function(principle) { %>
+            <li><%= principle %></li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-section__title fade-up"><%= t.aboutPage.ctaTitle %></h2>
+        <p class="cta-section__desc fade-up"><%= t.aboutPage.ctaDesc %></p>
+        <a href="/projects" class="btn btn--primary fade-up"><%= t.aboutPage.ctaBtn %></a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/cookie-consent') %>
+  <script src="/public/script.js"></script>
+</body>
+</html>
