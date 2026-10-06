@@ -14,21 +14,21 @@
       <canvas id="heroCyberCanvas" class="hero__canvas" aria-hidden="true"></canvas>
       <div class="hero__ambient-waves" aria-hidden="true"></div>
       <div class="container hero__content">
-        <div class="hero__logo-wrapper fade-up">
+        <div class="hero__logo-wrapper">
           <div class="hero__logo-glow" aria-hidden="true"></div>
           <div class="hero__logo-orbit" aria-hidden="true"></div>
-          <img src="/public/images/logo-icon.png" alt="Danuxy Studio Logo — Engineering Digital Experiences" class="hero__logo" width="88" height="88" />
+          <img src="/public/images/logo-icon.png" alt="Danuxy Studio Logo — Engineering Digital Experiences" class="hero__logo" width="88" height="88" fetchpriority="high" decoding="async" />
         </div>
-        <div class="hero__pill-motto fade-up">
+        <div class="hero__pill-motto">
           <span class="motto-tag">BUILD</span>
           <span class="motto-dot"></span>
           <span class="motto-tag">CREATE</span>
           <span class="motto-dot"></span>
           <span class="motto-tag">GROW</span>
         </div>
-        <h1 class="hero__title fade-up"><%= t.home.heroTitle %></h1>
-        <p class="hero__desc fade-up"><%= t.home.heroDesc %></p>
-        <div class="hero__actions fade-up">
+        <h1 class="hero__title"><%= t.home.heroTitle %></h1>
+        <p class="hero__desc"><%= t.home.heroDesc %></p>
+        <div class="hero__actions">
           <a href="/projects" class="btn btn--primary btn--glow"><i class="fas fa-rocket"></i> <%= t.common.exploreProjects %></a>
           <a href="/contact" class="btn btn--outline"><i class="fas fa-paper-plane"></i> <%= t.common.letsWorkTogether %></a>
         </div>
@@ -202,6 +202,6 @@
   <%- include('partials/footer') %>
   <%- include('partials/cookie-consent') %>
 
-  <script src="/public/script.js"></script>
+  <script src="/public/script.js" defer></script>
 </body>
 </html>

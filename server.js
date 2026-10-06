@@ -1,16 +1,23 @@
 const express = require("express");
 const path = require("path");
+const compression = require("compression");
 const { i18n, localizedProjects, localizedArticles } = require("./i18n");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Enable HTTP Compression (Gzip / Deflate)
+app.use(compression());
+
 // View engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Static files
-app.use("/public", express.static(path.join(__dirname, "public")));
+// Static files with Cache-Control headers
+app.use("/public", express.static(path.join(__dirname, "public"), {
+    maxAge: "30d",
+    etag: true
+}));
 
 // ===== LANGUAGE DETECTION MIDDLEWARE =====
 function getCookie(req, name) {
