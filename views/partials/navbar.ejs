@@ -17,45 +17,45 @@
     <div class="header__actions">
       <!-- Language Switcher -->
       <div class="lang-switch" id="langSwitch" role="group" aria-label="<%= t.common.langLabel %>">
-        <button type="button" class="lang-btn <%= (typeof lang !== 'undefined' && lang === 'id') ? 'active' : '' %>" data-lang="id" title="Bahasa Indonesia">ID</button>
-        <button type="button" class="lang-btn <%= (typeof lang !== 'undefined' && lang === 'en') ? 'active' : '' %>" data-lang="en" title="English">EN</button>
+        <button type="button" class="lang-btn <%= (typeof lang !== 'undefined' && lang === 'id') ? 'active' : '' %>" data-lang="id" title="Bahasa Indonesia" aria-label="Ganti bahasa ke Bahasa Indonesia">ID</button>
+        <button type="button" class="lang-btn <%= (typeof lang !== 'undefined' && lang === 'en') ? 'active' : '' %>" data-lang="en" title="English" aria-label="Switch language to English">EN</button>
       </div>
 
       <!-- Theme Toggle -->
       <button class="theme-toggle" id="themeToggle" aria-label="<%= t.common.themeToggle %>">
-        <i class="fas fa-moon" id="themeIcon"></i>
+        <i class="fas fa-moon" id="themeIcon" aria-hidden="true"></i>
       </button>
 
       <!-- Hamburger for Mobile -->
       <button class="hamburger" id="hamburger" aria-label="<%= t.common.menuToggle %>" aria-expanded="false">
-        <span></span><span></span><span></span>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <nav class="nav-mobile" id="navMobile">
+    <nav class="nav-mobile" id="navMobile" aria-label="<%= lang === 'en' ? 'Mobile Navigation' : 'Navigasi Mobile' %>">
       <div class="nav-mobile__header">
         <a href="/" class="header__logo">
           <img src="/public/images/logo-icon.png" alt="Danuxy Studio" width="32" height="32" />
           <span>Danuxy<span class="logo-dot">.</span></span>
         </a>
       </div>
-      <a href="/" class="<%= typeof currentPage !== 'undefined' && currentPage === 'home' ? 'active' : '' %>"><i class="fas fa-home"></i> <%= t.nav.home %></a>
-      <a href="/projects" class="<%= typeof currentPage !== 'undefined' && currentPage === 'projects' ? 'active' : '' %>"><i class="fas fa-folder-open"></i> <%= t.nav.projects %></a>
-      <a href="/services" class="<%= typeof currentPage !== 'undefined' && currentPage === 'services' ? 'active' : '' %>"><i class="fas fa-cogs"></i> <%= t.nav.services %></a>
-      <a href="/blog" class="<%= typeof currentPage !== 'undefined' && currentPage === 'blog' ? 'active' : '' %>"><i class="fas fa-pen-nib"></i> <%= t.nav.blog %></a>
-      <a href="/about" class="<%= typeof currentPage !== 'undefined' && currentPage === 'about' ? 'active' : '' %>"><i class="fas fa-info-circle"></i> <%= t.nav.about %></a>
-      <a href="https://nixi.danuxy.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> <%= t.nav.nixi %> <i class="fas fa-external-link-alt" style="font-size:0.75rem; margin-left:auto;"></i></a>
-      <a href="/minecraft" class="<%= typeof currentPage !== 'undefined' && currentPage === 'minecraft' ? 'active' : '' %>"><i class="fas fa-cubes"></i> <%= t.nav.minecraft %></a>
-      <a href="/links" class="<%= typeof currentPage !== 'undefined' && currentPage === 'links' ? 'active' : '' %>"><i class="fas fa-link"></i> <%= lang === 'en' ? 'Links Hub' : 'Direktori Tautan' %></a>
-      <a href="/contact" class="nav-mobile__cta"><i class="fas fa-envelope"></i> <%= t.nav.contact %></a>
+      <a href="/" class="<%= typeof currentPage !== 'undefined' && currentPage === 'home' ? 'active' : '' %>"><i class="fas fa-home" aria-hidden="true"></i> <%= t.nav.home %></a>
+      <a href="/projects" class="<%= typeof currentPage !== 'undefined' && currentPage === 'projects' ? 'active' : '' %>"><i class="fas fa-folder-open" aria-hidden="true"></i> <%= t.nav.projects %></a>
+      <a href="/services" class="<%= typeof currentPage !== 'undefined' && currentPage === 'services' ? 'active' : '' %>"><i class="fas fa-cogs" aria-hidden="true"></i> <%= t.nav.services %></a>
+      <a href="/blog" class="<%= typeof currentPage !== 'undefined' && currentPage === 'blog' ? 'active' : '' %>"><i class="fas fa-pen-nib" aria-hidden="true"></i> <%= t.nav.blog %></a>
+      <a href="/about" class="<%= typeof currentPage !== 'undefined' && currentPage === 'about' ? 'active' : '' %>"><i class="fas fa-info-circle" aria-hidden="true"></i> <%= t.nav.about %></a>
+      <a href="https://nixi.danuxy.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> <%= t.nav.nixi %> <i class="fas fa-external-link-alt" style="font-size:0.75rem; margin-left:auto;" aria-hidden="true"></i></a>
+      <a href="/minecraft" class="<%= typeof currentPage !== 'undefined' && currentPage === 'minecraft' ? 'active' : '' %>"><i class="fas fa-cubes" aria-hidden="true"></i> <%= t.nav.minecraft %></a>
+      <a href="/links" class="<%= typeof currentPage !== 'undefined' && currentPage === 'links' ? 'active' : '' %>"><i class="fas fa-link" aria-hidden="true"></i> <%= lang === 'en' ? 'Links Hub' : 'Direktori Tautan' %></a>
+      <a href="/contact" class="nav-mobile__cta"><i class="fas fa-envelope" aria-hidden="true"></i> <%= t.nav.contact %></a>
 
       <!-- Mobile Language Switcher in Drawer -->
       <div class="nav-mobile__lang">
-        <span class="nav-mobile__lang-label"><i class="fas fa-globe"></i> <%= t.common.langLabel %>:</span>
-        <div class="lang-switch lang-switch--mobile">
-          <button type="button" class="lang-btn <%= (typeof lang !== 'undefined' && lang === 'id') ? 'active' : '' %>" data-lang="id">ID</button>
-          <button type="button" class="lang-btn <%= (typeof lang !== 'undefined' && lang === 'en') ? 'active' : '' %>" data-lang="en">EN</button>
+        <span class="nav-mobile__lang-label"><i class="fas fa-globe" aria-hidden="true"></i> <%= t.common.langLabel %>:</span>
+        <div class="lang-switch lang-switch--mobile" role="group" aria-label="<%= t.common.langLabel %>">
+          <button type="button" class="lang-btn <%= (typeof lang !== 'undefined' && lang === 'id') ? 'active' : '' %>" data-lang="id" aria-label="Ganti bahasa ke Bahasa Indonesia">ID</button>
+          <button type="button" class="lang-btn <%= (typeof lang !== 'undefined' && lang === 'en') ? 'active' : '' %>" data-lang="en" aria-label="Switch language to English">EN</button>
         </div>
       </div>
     </nav>

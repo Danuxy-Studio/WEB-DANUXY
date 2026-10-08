@@ -11,24 +11,24 @@
 /* ===== DESIGN TOKENS ===== */
 :root,
 [data-theme="light"] {
-    --primary: #0284c7;
-    --primary-hover: #0369a1;
+    --primary: #0369a1;
+    --primary-hover: #075985;
     --primary-light: #e0f2fe;
-    --primary-glow: rgba(2, 132, 199, 0.16);
-    --accent: #0ea5e9;
-    --accent-light: rgba(14, 165, 233, 0.12);
+    --primary-glow: rgba(3, 105, 161, 0.18);
+    --accent: #0284c7;
+    --accent-light: rgba(2, 132, 199, 0.12);
 
-    /* Soft Slate-Ice Palette (mengurangi silau putih, memberi depth elegan) */
+    /* Soft Slate-Ice Palette */
     --bg: #edf2f7;
     --bg-alt: #e2e8f0;
     --card: #ffffff;
-    --header-bg: rgba(237, 242, 247, 0.88);
+    --header-bg: rgba(237, 242, 247, 0.92);
     --border: #cbd5e1;
     --border-hover: #94a3b8;
 
     --text: #0f172a;
     --text-secondary: #334155;
-    --text-muted: #64748b;
+    --text-muted: #475569;
 
     --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
     --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.09);
@@ -101,6 +101,19 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+/* ===== ACCESSIBILITY UTILITIES ===== */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 
 /* ===== CONTAINER ===== */
@@ -206,14 +219,19 @@ img {
 }
 
 .lang-btn {
-    padding: 4px 9px;
-    font-size: 0.78rem;
+    padding: 6px 12px;
+    font-size: 0.8rem;
     font-weight: 700;
     color: var(--text-muted);
     border-radius: var(--radius-full);
     transition: all 0.2s ease;
     line-height: 1.2;
     cursor: pointer;
+    min-height: 34px;
+    min-width: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .lang-btn:hover {
@@ -245,8 +263,8 @@ img {
 }
 
 .theme-toggle {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: var(--radius-md);
     background: var(--card);
     border: 1px solid var(--border);
@@ -270,8 +288,8 @@ img {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: var(--radius-md);
     background: var(--card);
     border: 1px solid var(--border);
@@ -427,29 +445,29 @@ img {
 }
 
 .btn--whatsapp {
-    background: #25d366;
+    background: #15803d;
     color: #ffffff;
-    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+    box-shadow: 0 4px 16px rgba(21, 128, 61, 0.25);
 }
 
 .btn--whatsapp:hover {
-    background: #1eb954;
+    background: #166534;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 8px 24px rgba(21, 128, 61, 0.35);
 }
 
 .btn--store {
-    background: #f59e0b;
+    background: #b45309;
     color: #ffffff;
-    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+    box-shadow: 0 4px 16px rgba(180, 83, 9, 0.25);
 }
 
 .btn--store:hover {
-    background: #d97706;
+    background: #92400e;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+    box-shadow: 0 8px 24px rgba(180, 83, 9, 0.35);
 }
 
 .btn--sm {
@@ -1160,9 +1178,9 @@ img {
 
 .footer__col a {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: var(--text-muted);
-    padding: 4px 0;
+    padding: 7px 0;
     transition: color 0.2s ease;
 }
 
@@ -1172,19 +1190,19 @@ img {
 
 .footer__social {
     display: flex;
-    gap: 8px;
+    gap: 10px;
 }
 
 .footer__social a {
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: var(--bg);
     border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-muted);
     transition: all 0.25s ease;
 }
@@ -2353,8 +2371,9 @@ img {
     }
 
     .footer__col a {
-        padding: 6px 0;
-        font-size: 0.88rem;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        display: inline-block;
     }
 
     .footer__social {
@@ -2859,15 +2878,33 @@ body.page-is-exiting main {
 }
 
 .links-highlight-banner--whatsapp {
-    --banner-accent: #25d366;
-    border-color: rgba(37, 211, 102, 0.35);
-    background: linear-gradient(135deg, var(--card) 0%, rgba(37, 211, 102, 0.05) 100%);
+    --banner-accent: #15803d;
+    --banner-badge-color: #14532d;
+    --banner-badge-bg: #dcfce7;
+    border-color: rgba(22, 163, 74, 0.35);
+    background: linear-gradient(135deg, var(--card) 0%, rgba(34, 197, 94, 0.05) 100%);
+}
+
+[data-theme="dark"] .links-highlight-banner--whatsapp {
+    --banner-accent: #4ade80;
+    --banner-badge-color: #86efac;
+    --banner-badge-bg: rgba(34, 197, 94, 0.18);
+    border-color: rgba(74, 222, 128, 0.35);
 }
 
 .links-highlight-banner--store {
-    --banner-accent: #f59e0b;
-    border-color: rgba(245, 158, 11, 0.35);
+    --banner-accent: #b45309;
+    --banner-badge-color: #78350f;
+    --banner-badge-bg: #fef3c7;
+    border-color: rgba(217, 119, 6, 0.35);
     background: linear-gradient(135deg, var(--card) 0%, rgba(245, 158, 11, 0.05) 100%);
+}
+
+[data-theme="dark"] .links-highlight-banner--store {
+    --banner-accent: #fbbf24;
+    --banner-badge-color: #fde68a;
+    --banner-badge-bg: rgba(245, 158, 11, 0.18);
+    border-color: rgba(251, 191, 36, 0.35);
 }
 
 .links-highlight-banner:hover {
@@ -2906,15 +2943,11 @@ body.page-is-exiting main {
     font-weight: 800;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: var(--banner-accent, var(--primary));
-    background: rgba(37, 211, 102, 0.12);
+    color: var(--banner-badge-color, var(--banner-accent, var(--primary)));
+    background: var(--banner-badge-bg, rgba(37, 211, 102, 0.12));
     padding: 4px 10px;
     border-radius: var(--radius-full);
     margin-bottom: 6px;
-}
-
-.links-highlight-banner--store .links-highlight-banner__badge {
-    background: rgba(245, 158, 11, 0.12);
 }
 
 .links-highlight-banner__title {

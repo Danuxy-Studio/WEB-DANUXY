@@ -40,7 +40,7 @@
             </div>
           </div>
           <div class="links-highlight-banner__action">
-            <a href="https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp links-highlight-banner__btn">
+            <a href="https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp links-highlight-banner__btn" aria-label="<%= lang === 'en' ? 'Join Free Trial WhatsApp Group (opens in new window)' : 'Gabung Grup WhatsApp Uji Coba Bot Gratis (buka di tab baru)' %>">
               <i class="fab fa-whatsapp" aria-hidden="true"></i> <%= lang === 'en' ? 'Join Free Trial Group' : 'Gabung Grup Uji Coba Bot' %> &rarr;
             </a>
           </div>
@@ -65,7 +65,7 @@
             </div>
           </div>
           <div class="links-highlight-banner__action">
-            <a href="https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ" target="_blank" rel="noopener noreferrer" class="btn btn--store links-highlight-banner__btn">
+            <a href="https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ" target="_blank" rel="noopener noreferrer" class="btn btn--store links-highlight-banner__btn" aria-label="<%= lang === 'en' ? 'Join Danuxy Store WhatsApp Group (opens in new window)' : 'Masuk Grup WhatsApp Danuxy Store (buka di tab baru)' %>">
               <i class="fas fa-shopping-bag" aria-hidden="true"></i> <%= lang === 'en' ? 'Join Danuxy Store Group' : 'Masuk Grup Danuxy Store' %> &rarr;
             </a>
           </div>
@@ -75,8 +75,9 @@
         <div class="links-search-section">
           <div class="links-search-wrap">
             <i class="fas fa-search links-search-icon" aria-hidden="true"></i>
-            <input type="text" id="directorySearchInput" class="links-search-input" placeholder="<%= lang === 'en' ? 'Search links (e.g. WhatsApp, Store, Bot, GitHub)...' : 'Cari tautan resmi (misal: bot, store, saluran, whatsapp, game)...' %>" autocomplete="off" />
-            <button type="button" id="directoryClearSearch" class="links-search-clear" aria-label="Hapus pencarian">
+            <label for="directorySearchInput" class="visually-hidden"><%= lang === 'en' ? 'Search official links' : 'Cari tautan direktori resmi' %></label>
+            <input type="text" id="directorySearchInput" class="links-search-input" placeholder="<%= lang === 'en' ? 'Search links (e.g. WhatsApp, Store, Bot, GitHub)...' : 'Cari tautan resmi (misal: bot, store, saluran, whatsapp, game)...' %>" autocomplete="off" aria-label="<%= lang === 'en' ? 'Search official links' : 'Cari tautan direktori resmi' %>" />
+            <button type="button" id="directoryClearSearch" class="links-search-clear" aria-label="<%= lang === 'en' ? 'Clear search text' : 'Hapus pencarian' %>">
               <i class="fas fa-times" aria-hidden="true"></i>
             </button>
           </div>
@@ -103,7 +104,7 @@
 
             <div class="links-grid">
               <% group.items.forEach(function(item) { %>
-              <a href="<%= item.url %>" class="links-card-item <%= item.isFeatured ? 'links-card-item--featured' : '' %>" <%= item.isExternal ? 'target="_blank" rel="noopener noreferrer"' : '' %> style="--item-accent: <%= group.accentColor || 'var(--primary)' %>;" data-search="<%= (item.title + ' ' + (item.titleEn || '') + ' ' + item.desc + ' ' + (item.descEn || '') + ' ' + (item.badge || '')).toLowerCase() %>">
+              <a href="<%= item.url %>" class="links-card-item <%= item.isFeatured ? 'links-card-item--featured' : '' %>" <%= item.isExternal ? 'target="_blank" rel="noopener noreferrer"' : '' %> style="--item-accent: <%= group.accentColor || 'var(--primary)' %>;" data-search="<%= (item.title + ' ' + (item.titleEn || '') + ' ' + item.desc + ' ' + (item.descEn || '') + ' ' + (item.badge || '')).toLowerCase() %>" aria-label="<%= (lang === 'en' && item.titleEn ? item.titleEn : item.title) + (item.isExternal ? (lang === 'en' ? ' - opens in new window' : ' - buka di tab baru') : '') %>">
                 <div class="links-card-item__icon">
                   <i class="<%= item.icon %>" aria-hidden="true"></i>
                 </div>
@@ -149,7 +150,7 @@
               </p>
               <% if (faqItem.link) { %>
               <div style="margin-top: 12px;">
-                <a href="<%= faqItem.link %>" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 800; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;">
+                <a href="<%= faqItem.link %>" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 800; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;" aria-label="<%= faqItem.linkText + (lang === 'en' ? ' (opens in new window)' : ' (buka di tab baru)') %>">
                   <span><%= faqItem.linkText %></span> &rarr;
                 </a>
               </div>

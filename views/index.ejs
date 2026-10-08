@@ -101,14 +101,14 @@
               
               <div class="project-card__actions">
                 <% if (project.link) { %>
-                <a href="<%= project.link %>" class="btn btn--outline btn--sm project-card__btn-detail">
-                  <%= t.common.viewDetails %> <i class="fas fa-arrow-right"></i>
+                <a href="<%= project.link %>" class="btn btn--outline btn--sm project-card__btn-detail" aria-label="<%= t.common.viewDetails + ': ' + project.name %>">
+                  <%= t.common.viewDetails %> <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>
                 <% } %>
 
                 <% if (project.externalLink) { %>
-                <a href="<%= project.externalLink %>" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp btn--sm project-card__btn-external">
-                  <i class="fab fa-whatsapp"></i> <%= t.common.visitNixi %> <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i>
+                <a href="<%= project.externalLink %>" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp btn--sm project-card__btn-external" aria-label="<%= t.common.visitNixi + ' (opens in new window)' %>">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> <%= t.common.visitNixi %> <i class="fas fa-external-link-alt" style="font-size:0.75rem;" aria-hidden="true"></i>
                 </a>
                 <% } %>
               </div>
