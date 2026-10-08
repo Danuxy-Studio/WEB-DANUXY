@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <a href="#main" class="skip-link"><%= t.nav.skipLink %></a>
+  <%- include('partials/navbar') %>
+
+  <main id="main">
+    <!-- PAGE HERO RESMI DANUXY STUDIO -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="section__label"><%= lang === 'en' ? 'OFFICIAL DIRECTORY' : 'DIREKTORI RESMI' %></p>
+        <h1 class="page-hero__title"><%= lang === 'en' ? 'Danuxy Studio Links Hub' : 'Direktori Tautan & Komunitas Resmi' %></h1>
+        <p class="page-hero__desc"><%= t.linksPage.desc %></p>
+      </div>
+    </section>
+
+    <!-- CONTENT SECTION (MENYATU DENGAN TEMPLATE WEB) -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+
+        <!-- BANNER SOROTAN 1: COBA BOT GRATIS (SUPER MENCOLOK UNTUK PENGGUNA INDONESIA) -->
+        <div class="links-highlight-banner links-highlight-banner--whatsapp">
+          <div class="links-highlight-banner__main">
+            <div class="links-highlight-banner__icon">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </div>
+            <div>
+              <span class="links-highlight-banner__badge">
+                <i class="fas fa-sparkles" aria-hidden="true"></i> <%= lang === 'en' ? '100% FREE TRIAL • NO SIGNUP' : '100% GRATIS • LANGSUNG COBA' %>
+              </span>
+              <h2 class="links-highlight-banner__title">
+                <%= lang === 'en' ? 'Want to try our WhatsApp Bot features for free?' : 'Mau Nyobain Fitur Bot WhatsApp Secara Gratis?' %>
+              </h2>
+              <p class="links-highlight-banner__desc">
+                <%= lang === 'en' ? 'Join our interactive WhatsApp trial group directly. Test commands, AI tools, and automation live without any fee.' : 'Langsung masuk ke grup WhatsApp uji coba ini. Bebas tes semua perintah, fitur AI, dan otomasi bot tanpa ribet dan tanpa biaya.' %>
+              </p>
+            </div>
+          </div>
+          <div class="links-highlight-banner__action">
+            <a href="https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp" style="font-size: 1rem; padding: 16px 28px;">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> <%= lang === 'en' ? 'Join Free Trial Group' : 'GABUNG GRUP NYOBAIN BOT SEKARANG' %> &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- BANNER SOROTAN 2: DANUXY STORE (TOP UP GAME & APP PREMIUM) -->
+        <div class="links-highlight-banner links-highlight-banner--store">
+          <div class="links-highlight-banner__main">
+            <div class="links-highlight-banner__icon">
+              <i class="fas fa-gem" aria-hidden="true"></i>
+            </div>
+            <div>
+              <span class="links-highlight-banner__badge">
+                <i class="fas fa-check-circle" aria-hidden="true"></i> <%= lang === 'en' ? 'VERIFIED STORE • BEST PRICES' : 'STORE RESMI • BERGARANSI' %>
+              </span>
+              <h2 class="links-highlight-banner__title">
+                <%= lang === 'en' ? 'Danuxy Store: Premium Apps & Game Top-Up' : 'Danuxy Store: Akun Aplikasi Premium & Top Up Game' %>
+              </h2>
+              <p class="links-highlight-banner__desc">
+                <%= lang === 'en' ? 'Verified provider for premium subscription accounts with full warranty and instant trusted game top-ups.' : 'Grup resmi penyedia akun aplikasi premium legal bergaransi dan layanan top up game terpercaya dengan proses cepat.' %>
+              </p>
+            </div>
+          </div>
+          <div class="links-highlight-banner__action">
+            <a href="https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ" target="_blank" rel="noopener noreferrer" class="btn btn--store" style="font-size: 1rem; padding: 16px 28px;">
+              <i class="fas fa-shopping-bag" aria-hidden="true"></i> <%= lang === 'en' ? 'Join Danuxy Store Group' : 'MASUK GRUP DANUXY STORE' %> &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- SEARCH BAR RINGKAS -->
+        <div class="links-search-section">
+          <div class="links-search-wrap">
+            <i class="fas fa-search links-search-icon" aria-hidden="true"></i>
+            <input type="text" id="directorySearchInput" class="links-search-input" placeholder="<%= lang === 'en' ? 'Search links (e.g. WhatsApp, Store, Bot, GitHub)...' : 'Cari tautan resmi (misal: bot, store, saluran, whatsapp, game)...' %>" autocomplete="off" />
+            <button type="button" id="directoryClearSearch" class="links-search-clear" aria-label="Hapus pencarian">
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- EMPTY STATE SEARCH -->
+        <div id="directoryEmptyNotice" class="links-empty-notice">
+          <p style="font-weight: 800; font-size: 1.1rem; color: var(--text); margin-bottom: 6px;">
+            <%= lang === 'en' ? 'No matching links found' : 'Tautan tidak ditemukan' %>
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <%= lang === 'en' ? 'Try searching for other keywords like "WhatsApp", "Store", "Bot", or "Minecraft".' : 'Coba gunakan kata kunci lain seperti "WhatsApp", "Store", "Bot", atau "Minecraft".' %>
+          </p>
+        </div>
+
+        <!-- DAFTAR KATEGORI TAUTAN -->
+        <div id="directoryListWrap">
+          <% linksGroups.forEach(function(group) { %>
+          <div class="links-category-group" data-group-id="<%= group.id %>" style="--cat-accent: <%= group.accentColor || 'var(--primary)' %>;">
+            <h2 class="links-category-heading">
+              <i class="<%= group.icon %>" aria-hidden="true"></i>
+              <span><%= group.title %></span>
+            </h2>
+
+            <div class="links-grid">
+              <% group.items.forEach(function(item) { %>
+              <a href="<%= item.url %>" class="links-card-item <%= item.isFeatured ? 'links-card-item--featured' : '' %>" <%= item.isExternal ? 'target="_blank" rel="noopener noreferrer"' : '' %> style="--item-accent: <%= group.accentColor || 'var(--primary)' %>;" data-search="<%= (item.title + ' ' + (item.titleEn || '') + ' ' + item.desc + ' ' + (item.descEn || '') + ' ' + (item.badge || '')).toLowerCase() %>">
+                <div class="links-card-item__icon">
+                  <i class="<%= item.icon %>" aria-hidden="true"></i>
+                </div>
+                <div class="links-card-item__content">
+                  <h3 class="links-card-item__title">
+                    <span><%= lang === 'en' && item.titleEn ? item.titleEn : item.title %></span>
+                    <% if (item.badge) { %>
+                    <span class="links-card-item__badge">
+                      <%= lang === 'en' && item.badgeEn ? item.badgeEn : item.badge %>
+                    </span>
+                    <% } %>
+                  </h3>
+                  <p class="links-card-item__desc">
+                    <%= lang === 'en' && item.descEn ? item.descEn : item.desc %>
+                  </p>
+                </div>
+                <div class="links-card-item__arrow">
+                  <i class="fas <%= item.isExternal ? 'fa-arrow-up-right-from-square' : 'fa-chevron-right' %>" aria-hidden="true"></i>
+                </div>
+              </a>
+              <% }); %>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+
+        <!-- FAQ SECTION (PENGUAT SEO NOMOR 1 DI GOOGLE) -->
+        <% if (typeof linksFaq !== 'undefined' && linksFaq.length > 0) { %>
+        <div class="services-section" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border);">
+          <div class="section__head section__head--center" style="margin-bottom: 32px;">
+            <p class="section__label"><i class="fas fa-circle-question" aria-hidden="true"></i> FAQ</p>
+            <h2 class="section__title"><%= lang === 'en' ? 'Frequently Asked Questions' : 'Pertanyaan Umum Seputar Tautan & Komunitas' %></h2>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 14px; max-width: 800px; margin: 0 auto;">
+            <% linksFaq.forEach(function(faqItem) { %>
+            <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 24px;">
+              <h3 style="font-size: 1.08rem; font-weight: 800; color: var(--text); margin-bottom: 8px;">
+                <i class="fas fa-question-circle" style="color: var(--primary); margin-right: 6px;"></i> <%= faqItem.q %>
+              </h3>
+              <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+                <%= faqItem.a %>
+              </p>
+              <% if (faqItem.link) { %>
+              <div style="margin-top: 12px;">
+                <a href="<%= faqItem.link %>" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 800; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;">
+                  <span><%= faqItem.linkText %></span> &rarr;
+                </a>
+              </div>
+              <% } %>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+        <% } %>
+
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/cookie-consent') %>
+  <script src="/public/script.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var searchInput = document.getElementById("directorySearchInput");
+      var clearBtn = document.getElementById("directoryClearSearch");
+      var cardItems = document.querySelectorAll(".links-card-item");
+      var groups = document.querySelectorAll(".links-category-group");
+      var emptyNotice = document.getElementById("directoryEmptyNotice");
+
+      if (searchInput) {
+        searchInput.addEventListener("input", function () {
+          var query = searchInput.value.trim().toLowerCase();
+          if (clearBtn) clearBtn.style.display = query ? "block" : "none";
+
+          var visibleCards = 0;
+          cardItems.forEach(function (card) {
+            var searchData = card.getAttribute("data-search") || "";
+            if (!query || searchData.indexOf(query) !== -1) {
+              card.classList.remove("hidden");
+              visibleCards++;
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+
+          groups.forEach(function (grp) {
+            var activeInGroup = grp.querySelectorAll(".links-card-item:not(.hidden)");
+            if (activeInGroup.length === 0) {
+              grp.classList.add("hidden");
+            } else {
+              grp.classList.remove("hidden");
+            }
+          });
+
+          if (emptyNotice) {
+            if (visibleCards === 0) {
+              emptyNotice.classList.add("show");
+            } else {
+              emptyNotice.classList.remove("show");
+            }
+          }
+        });
+      }
+
+      if (clearBtn) {
+        clearBtn.addEventListener("click", function () {
+          if (searchInput) {
+            searchInput.value = "";
+            clearBtn.style.display = "none";
+            searchInput.focus();
+            cardItems.forEach(function (c) { c.classList.remove("hidden"); });
+            groups.forEach(function (g) { g.classList.remove("hidden"); });
+            if (emptyNotice) emptyNotice.classList.remove("show");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

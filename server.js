@@ -434,6 +434,355 @@ app.get("/minecraft", function (req, res) {
     });
 });
 
+// Links Directory / Linktree page
+app.get("/links", function (req, res) {
+    const t = res.locals.t;
+    const lang = res.locals.lang;
+
+    const linksGroups = [
+        {
+            id: "whatsapp",
+            title: lang === "en" ? "WhatsApp Channels & Community" : "Saluran & Komunitas WhatsApp",
+            icon: "fab fa-whatsapp",
+            accentColor: "#25D366",
+            items: [
+                {
+                    title: "Saluran Resmi Danuxy Studio",
+                    titleEn: "Official Danuxy Studio Channel",
+                    desc: "Pusat siaran update ekosistem Danuxy, rilis proyek, pengumuman studio, dan info penting",
+                    descEn: "Main broadcast channel for Danuxy ecosystem news, project releases, and official announcements",
+                    url: "https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L",
+                    icon: "fab fa-whatsapp",
+                    badge: "Official Studio",
+                    badgeEn: "Official Studio",
+                    badgeColor: "success",
+                    isFeatured: true,
+                    isExternal: true
+                },
+                {
+                    title: "Saluran Update NIXI Bot",
+                    titleEn: "NIXI Bot Update Channel",
+                    desc: "Informasi rilis versi baru NIXI Bot, changelog fitur, tutorial, dan status gateway WhatsApp",
+                    descEn: "NIXI Bot version releases, feature changelogs, tutorials, and gateway operational updates",
+                    url: "https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n",
+                    icon: "fas fa-bullhorn",
+                    badge: "Update NIXI",
+                    badgeEn: "NIXI Updates",
+                    badgeColor: "primary",
+                    isFeatured: true,
+                    isExternal: true
+                },
+                {
+                    title: "Grup Coba Fitur NIXI Bot Gratis",
+                    titleEn: "Free NIXI Bot Feature Trial Group",
+                    desc: "Grup interaktif untuk mencoba langsung seluruh fitur bot WhatsApp NIXI secara gratis bersama komunitas",
+                    descEn: "Interactive trial group to test all NIXI WhatsApp Bot features live for free with the community",
+                    url: "https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q",
+                    icon: "fas fa-flask-vial",
+                    badge: "Gratis Coba",
+                    badgeEn: "Free Trial",
+                    badgeColor: "cyan",
+                    isFeatured: true,
+                    isExternal: true
+                },
+                {
+                    title: "WhatsApp Direct Chat & Konsultasi",
+                    titleEn: "WhatsApp Direct Support & Inquiry",
+                    desc: "Hubungi admin dan tim pengembang Danuxy Studio langsung via WhatsApp untuk pertanyaan atau bantuan",
+                    descEn: "Direct contact with Danuxy Studio developers and support team for inquiries or assistance",
+                    url: "https://wa.me/message/BGEICSH5MWY6N1",
+                    icon: "fas fa-headset",
+                    badge: "Fast Response",
+                    badgeEn: "Fast Response",
+                    badgeColor: "default",
+                    isFeatured: false,
+                    isExternal: true
+                }
+            ]
+        },
+        {
+            id: "store",
+            title: lang === "en" ? "Danuxy Store & Digital Services" : "Danuxy Store & Layanan Digital",
+            icon: "fas fa-store",
+            accentColor: "#f59e0b",
+            items: [
+                {
+                    title: "Danuxy Store: App Premium & Top Up Game",
+                    titleEn: "Danuxy Store: Premium Apps & Game Top-Up",
+                    desc: "Grup penyedia layanan digital, akun aplikasi premium resmi bergaransi, dan top up game terpercaya",
+                    descEn: "Verified provider group for premium app subscriptions, game top-up, and digital services",
+                    url: "https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ",
+                    icon: "fas fa-gem",
+                    badge: "Store Aktif",
+                    badgeEn: "Active Store",
+                    badgeColor: "amber",
+                    isFeatured: true,
+                    isExternal: true
+                },
+                {
+                    title: "Katalog Layanan Digital Studio",
+                    titleEn: "Studio Digital Services Catalog",
+                    desc: "Solusi jasa pembuatan Bot WhatsApp kustom, optimasi server Minecraft, dan website modern",
+                    descEn: "Custom WhatsApp bot development, Minecraft server optimization, and modern web apps",
+                    url: "/services",
+                    icon: "fas fa-cogs",
+                    badge: "Layanan Jasa",
+                    badgeEn: "Services",
+                    badgeColor: "default",
+                    isFeatured: false,
+                    isExternal: false
+                },
+                {
+                    title: "Formulir Kontak Kerja Sama",
+                    titleEn: "Official Collaboration Contact Form",
+                    desc: "Ajukan penawaran proyek digital atau kerja sama resmi dengan tim Danuxy Studio",
+                    descEn: "Submit official digital project inquiries and collaboration proposals to Danuxy Studio",
+                    url: "/contact",
+                    icon: "fas fa-paper-plane",
+                    badge: null,
+                    badgeEn: null,
+                    badgeColor: "default",
+                    isFeatured: false,
+                    isExternal: false
+                }
+            ]
+        },
+        {
+            id: "platforms",
+            title: lang === "en" ? "Platforms & Software Products" : "Platform & Produk Software",
+            icon: "fas fa-cubes",
+            accentColor: "#38bdf8",
+            items: [
+                {
+                    title: "NIXI Platform Dashboard",
+                    titleEn: "NIXI Platform Dashboard",
+                    desc: "Dashboard web WhatsApp Gateway mandiri: pairing via QR Code / 8-digit Pairing Code dengan bot terisolasi",
+                    descEn: "Autonomous WhatsApp Gateway dashboard: instant QR / 8-digit pairing code with isolated bot instance",
+                    url: "https://nixi.danuxy.com/",
+                    icon: "fas fa-robot",
+                    badge: "Platform Web",
+                    badgeEn: "Web Platform",
+                    badgeColor: "primary",
+                    isFeatured: true,
+                    isExternal: true
+                },
+                {
+                    title: "DanuxyCore: Dual Native GUI Minecraft",
+                    titleEn: "DanuxyCore: Dual Native GUI Minecraft",
+                    desc: "Plugin cross-platform revolusioner untuk server Minecraft: dialog modern Java 1.21.8+ dan Form UI Bedrock",
+                    descEn: "Revolutionary Minecraft plugin: Java 1.21.8+ dialog GUI and native Bedrock form UI via Geyser/Floodgate",
+                    url: "/minecraft",
+                    icon: "fas fa-cube",
+                    badge: "Plugin Server",
+                    badgeEn: "Server Plugin",
+                    badgeColor: "cyan",
+                    isFeatured: false,
+                    isExternal: false
+                },
+                {
+                    title: "Portofolio & Showcase Proyek",
+                    titleEn: "Projects & Portfolio Showcase",
+                    desc: "Daftar lengkap karya software, sistem otomasi, dan eksperimen teknologi Danuxy Studio",
+                    descEn: "Complete showcase of software systems, automation tools, and technology experiments",
+                    url: "/projects",
+                    icon: "fas fa-folder-open",
+                    badge: null,
+                    badgeEn: null,
+                    badgeColor: "default",
+                    isFeatured: false,
+                    isExternal: false
+                }
+            ]
+        },
+        {
+            id: "socials",
+            title: lang === "en" ? "Open Source & Social Media" : "Open Source & Media Sosial",
+            icon: "fas fa-share-nodes",
+            accentColor: "#a855f7",
+            items: [
+                {
+                    title: "GitHub Organisasi",
+                    titleEn: "GitHub Organization",
+                    desc: "Koleksi repositori open source, boilerplate bot, utilitas digital, dan dokumentasi teknikal",
+                    descEn: "Open source repositories, bot boilerplates, digital utilities, and technical documentation",
+                    url: "https://github.com/Danuxy-Studio",
+                    icon: "fab fa-github",
+                    badge: "Open Source",
+                    badgeEn: "Open Source",
+                    badgeColor: "default",
+                    isFeatured: false,
+                    isExternal: true
+                },
+                {
+                    title: "YouTube Channel (@nuxymc)",
+                    titleEn: "YouTube Channel (@nuxymc)",
+                    desc: "Video dokumentasi server Minecraft, showcase plugin, dan tutorial pengembangan",
+                    descEn: "Minecraft server documentation, plugin showcases, and development tutorials",
+                    url: "https://youtube.com/@nuxymc",
+                    icon: "fab fa-youtube",
+                    badge: null,
+                    badgeEn: null,
+                    badgeColor: "default",
+                    isFeatured: false,
+                    isExternal: true
+                },
+                {
+                    title: "TikTok (@danuxy.com)",
+                    titleEn: "TikTok (@danuxy.com)",
+                    desc: "Cuplikan singkat demo fitur sistem, preview bot, dan proses development teknologi sehari-hari",
+                    descEn: "Short clips of system features, bot previews, and daily tech development highlights",
+                    url: "https://tiktok.com/@danuxy.com",
+                    icon: "fab fa-tiktok",
+                    badge: null,
+                    badgeEn: null,
+                    badgeColor: "default",
+                    isFeatured: false,
+                    isExternal: true
+                },
+                {
+                    title: "Instagram (@danuxy_digital)",
+                    titleEn: "Instagram (@danuxy_digital)",
+                    desc: "Galeri visual, kutipan rekayasa software, dan pengumuman visual Danuxy Studio",
+                    descEn: "Visual gallery, software engineering highlights, and studio announcements",
+                    url: "https://www.instagram.com/danuxy_digital",
+                    icon: "fab fa-instagram",
+                    badge: null,
+                    badgeEn: null,
+                    badgeColor: "default",
+                    isFeatured: false,
+                    isExternal: true
+                }
+            ]
+        }
+    ];
+
+    // Extract all items flattened for ItemList schema
+    const flatItems = [];
+    linksGroups.forEach(function (group) {
+        group.items.forEach(function (item) {
+            flatItems.push({
+                "@type": "ListItem",
+                "position": flatItems.length + 1,
+                "name": lang === "en" && item.titleEn ? item.titleEn : item.title,
+                "description": lang === "en" && item.descEn ? item.descEn : item.desc,
+                "url": item.url.startsWith("http") ? item.url : "https://danuxy.com" + item.url
+            });
+        });
+    });
+
+    const linksFaq = [
+        {
+            q: lang === "en" ? "Where can I try NIXI WhatsApp Bot features for free?" : "Di mana grup untuk mencoba fitur NIXI Bot secara gratis?",
+            a: lang === "en" ? "You can join our interactive trial community group to test all NIXI WhatsApp Bot features, commands, and automation live for free: https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q" : "Anda dapat bergabung langsung ke grup uji coba interaktif kami untuk mencoba seluruh fitur, perintah, dan otomasi NIXI Bot secara gratis: https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q",
+            link: "https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q",
+            linkText: lang === "en" ? "Join Free Trial Group" : "Gabung Grup Coba Gratis"
+        },
+        {
+            q: lang === "en" ? "What is the official NIXI Bot WhatsApp update channel?" : "Di mana saluran update resmi tentang NIXI Bot?",
+            a: lang === "en" ? "Official updates, changelogs, and announcements for NIXI Bot are broadcasted through our WhatsApp Channel: https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n" : "Informasi pembaruan versi, rilis fitur baru, dan status gateway NIXI Bot disiarkan melalui Saluran WhatsApp: https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n",
+            link: "https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n",
+            linkText: lang === "en" ? "Follow NIXI Channel" : "Ikuti Saluran NIXI"
+        },
+        {
+            q: lang === "en" ? "Where can I follow official announcements from Danuxy Studio?" : "Di mana saluran resmi Danuxy Studio?",
+            a: lang === "en" ? "Official studio announcements, software releases, and digital ecosystem news are broadcasted on our main WhatsApp Channel: https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L" : "Pusat siaran berita resmi Danuxy Studio, rilis proyek software, dan pengumuman studio dapat diikuti di Saluran WhatsApp: https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L",
+            link: "https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L",
+            linkText: lang === "en" ? "Follow Danuxy Channel" : "Ikuti Saluran Danuxy"
+        },
+        {
+            q: lang === "en" ? "What is Danuxy Store and how can I order?" : "Apa itu Danuxy Store dan bagaimana cara ordernya?",
+            a: lang === "en" ? "Danuxy Store is a verified digital provider for premium app subscriptions with warranty and instant game top-ups. Join our verified store group: https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ" : "Danuxy Store adalah penyedia layanan digital resmi untuk pembelian akun aplikasi premium bergaransi dan top up game terpercaya dengan proses cepat. Gabung ke grup resmi Danuxy Store: https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ",
+            link: "https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ",
+            linkText: lang === "en" ? "Join Danuxy Store" : "Gabung Danuxy Store"
+        }
+    ];
+
+    // Rich JSON-LD Structured Data for Google Search Top Ranking
+    const linksJsonLd = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://danuxy.com/links#webpage",
+                "url": "https://danuxy.com/links",
+                "name": lang === "en" 
+                    ? "Official Links Directory | Danuxy Studio | WhatsApp Channels, NIXI Bot & Store"
+                    : "Direktori Tautan Resmi Danuxy Studio | Saluran WhatsApp, NIXI Bot & Danuxy Store",
+                "description": lang === "en"
+                    ? "Access official WhatsApp channels, free NIXI bot feature trial group, Danuxy Store (premium apps & game top-up), and software platforms."
+                    : "Pusat tautan resmi Danuxy Studio: saluran WhatsApp resmi, grup coba fitur NIXI Bot gratis, Danuxy Store (aplikasi premium & top up game), serta platform software.",
+                "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Danuxy Studio", "item": "https://danuxy.com" },
+                        { "@type": "ListItem", "position": 2, "name": "Direktori Tautan", "item": "https://danuxy.com/links" }
+                    ]
+                }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://danuxy.com/#organization",
+                "name": "Danuxy Studio",
+                "url": "https://danuxy.com",
+                "logo": "https://danuxy.com/public/images/logo-icon.png",
+                "sameAs": [
+                    "https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L",
+                    "https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n",
+                    "https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q",
+                    "https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ",
+                    "https://github.com/Danuxy-Studio",
+                    "https://youtube.com/@nuxymc",
+                    "https://tiktok.com/@danuxy.com",
+                    "https://www.instagram.com/danuxy_digital"
+                ]
+            },
+            {
+                "@type": "ItemList",
+                "@id": "https://danuxy.com/links#itemlist",
+                "name": lang === "en" ? "Danuxy Studio Official Links & Channels" : "Daftar Tautan dan Komunitas Resmi Danuxy Studio",
+                "numberOfItems": flatItems.length,
+                "itemListElement": flatItems
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://danuxy.com/links#faq",
+                "mainEntity": linksFaq.map(function (item) {
+                    return {
+                        "@type": "Question",
+                        "name": item.q,
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": item.a
+                        }
+                    };
+                })
+            }
+        ]
+    };
+
+    const pageTitle = lang === "en"
+        ? "Official Links Directory | Danuxy Studio | WhatsApp Channels, NIXI Bot & Store"
+        : "Direktori Tautan Resmi Danuxy Studio | Saluran WhatsApp, NIXI Bot & Danuxy Store";
+
+    const pageDescription = lang === "en"
+        ? "Official directory of Danuxy Studio: join official WhatsApp channels, free NIXI bot trial group, Danuxy Store (premium apps & game top-up), and software platforms."
+        : "Pusat tautan resmi Danuxy Studio: gabung Saluran WhatsApp resmi, coba fitur NIXI Bot gratis di grup, Danuxy Store (app premium & top up game), serta platform software.";
+
+    res.render("links", {
+        currentPage: "links",
+        pageTitle: pageTitle,
+        pageDescription: pageDescription,
+        canonicalPath: "/links",
+        ogImage: t.site.ogImage,
+        linksGroups: linksGroups,
+        linksFaq: linksFaq,
+        jsonLd: linksJsonLd
+    });
+});
+
+app.get("/linktree", function (req, res) { res.redirect(301, "/links"); });
+app.get("/bio", function (req, res) { res.redirect(301, "/links"); });
+
 // Legal pages
 app.get("/privacy", function (req, res) {
     const t = res.locals.t;
@@ -506,6 +855,7 @@ app.get("/sitemap.xml", function (req, res) {
         { loc: "/blog", priority: "0.8", changefreq: "weekly" },
         { loc: "/contact", priority: "0.6", changefreq: "monthly" },
         { loc: "/minecraft", priority: "0.7", changefreq: "monthly" },
+        { loc: "/links", priority: "0.8", changefreq: "weekly" },
         { loc: "/privacy", priority: "0.3", changefreq: "yearly" },
         { loc: "/terms", priority: "0.3", changefreq: "yearly" },
         { loc: "/cookies", priority: "0.3", changefreq: "yearly" }

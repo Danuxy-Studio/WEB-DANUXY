@@ -11,7 +11,7 @@ const i18n = {
             name: "Danuxy Studio",
             url: "https://danuxy.com",
             tagline: "BUILD • CREATE • GROW",
-            statement: "Building things, breaking things, and vibe coding my way through it.",
+            statement: "Membangun sistem tangguh, otomasi cerdas, dan produk digital yang berjalan nyata.",
             description: "Danuxy Studio membangun project digital seperti NIXI, WhatsApp automation, Minecraft ecosystem, plugin, website, dan berbagai eksperimen teknologi.",
             ogImage: "https://danuxy.com/public/images/og-image.jpg"
         },
@@ -22,6 +22,7 @@ const i18n = {
             blog: "Blog",
             about: "About",
             contact: "Contact",
+            links: "Links Hub",
             nixi: "NIXI",
             minecraft: "Minecraft",
             skipLink: "Lewati ke konten utama"
@@ -46,7 +47,7 @@ const i18n = {
         },
         home: {
             heroTagline: "DANUXY STUDIO",
-            heroTitle: "Building things, breaking things, and vibe coding my way through it.",
+            heroTitle: "Building systems, breaking limits, and crafting code that actually runs.",
             heroDesc: "Danuxy Studio adalah studio digital tempat berbagai project teknologi, automation, platform WhatsApp, dan eksperimen software dibangun dari nol.",
             aboutLabel: "Tentang Kami",
             aboutTitle: "We build things that actually run.",
@@ -325,6 +326,20 @@ const i18n = {
             text: "Kami menggunakan cookie untuk memastikan fungsionalitas situs berjalan optimal, seperti mengingat pilihan tema dan preferensi bahasa Anda.",
             accept: "Terima",
             settings: "Pengaturan"
+        },
+        linksPage: {
+            label: "Connect & Community",
+            title: "Direktori Tautan Resmi",
+            desc: "Pusat akses cepat ke seluruh ekosistem, komunitas, platform, dan saluran resmi Danuxy Studio.",
+            badge: "Official Verified Hub",
+            copyBtn: "Salin Link",
+            copiedToast: "Link berhasil disalin ke clipboard!",
+            groups: {
+                community: "Saluran & Komunitas",
+                platforms: "Platform & Proyek",
+                services: "Layanan & Kontak",
+                socials: "Media Sosial & Repositori"
+            }
         }
     },
 
@@ -338,7 +353,7 @@ const i18n = {
             name: "Danuxy Studio",
             url: "https://danuxy.com",
             tagline: "BUILD • CREATE • GROW",
-            statement: "Building things, breaking things, and vibe coding my way through it.",
+            statement: "Building systems, breaking limits, and crafting code that actually runs.",
             description: "Danuxy Studio builds digital projects including NIXI, WhatsApp automation, Minecraft ecosystem, custom plugins, web applications, and technology experiments.",
             ogImage: "https://danuxy.com/public/images/og-image.jpg"
         },
@@ -349,6 +364,7 @@ const i18n = {
             blog: "Blog",
             about: "About",
             contact: "Contact",
+            links: "Links Hub",
             nixi: "NIXI",
             minecraft: "Minecraft",
             skipLink: "Skip to main content"
@@ -373,7 +389,7 @@ const i18n = {
         },
         home: {
             heroTagline: "DANUXY STUDIO",
-            heroTitle: "Building things, breaking things, and vibe coding my way through it.",
+            heroTitle: "Building systems, breaking limits, and crafting code that actually runs.",
             heroDesc: "Danuxy Studio is an independent digital studio crafting software, automation tools, WhatsApp platforms, and technology experiments from scratch.",
             aboutLabel: "About Us",
             aboutTitle: "We build things that actually run.",
@@ -652,6 +668,20 @@ const i18n = {
             text: "We use cookies to ensure proper website functionality, such as saving your theme and language preferences.",
             accept: "Accept",
             settings: "Settings"
+        },
+        linksPage: {
+            label: "Connect & Community",
+            title: "Official Link Directory",
+            desc: "Quick access hub for all official Danuxy Studio platforms, communities, and channels.",
+            badge: "Official Verified Hub",
+            copyBtn: "Copy Link",
+            copiedToast: "Link successfully copied to clipboard!",
+            groups: {
+                community: "Channels & Communities",
+                platforms: "Platforms & Projects",
+                services: "Services & Inquiries",
+                socials: "Social Media & Repositories"
+            }
         }
     }
 };

@@ -10,6 +10,7 @@
       <a href="/services" class="<%= typeof currentPage !== 'undefined' && currentPage === 'services' ? 'active' : '' %>"><%= t.nav.services %></a>
       <a href="/blog" class="<%= typeof currentPage !== 'undefined' && currentPage === 'blog' ? 'active' : '' %>"><%= t.nav.blog %></a>
       <a href="/about" class="<%= typeof currentPage !== 'undefined' && currentPage === 'about' ? 'active' : '' %>"><%= t.nav.about %></a>
+      <a href="/links" class="<%= typeof currentPage !== 'undefined' && currentPage === 'links' ? 'active' : '' %>"><%= t.nav.links %></a>
       <a href="/contact" class="<%= typeof currentPage !== 'undefined' && currentPage === 'contact' ? 'active' : '' %>"><%= t.nav.contact %></a>
     </nav>
 
@@ -46,6 +47,7 @@
       <a href="/about" class="<%= typeof currentPage !== 'undefined' && currentPage === 'about' ? 'active' : '' %>"><i class="fas fa-info-circle"></i> <%= t.nav.about %></a>
       <a href="https://nixi.danuxy.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> <%= t.nav.nixi %> <i class="fas fa-external-link-alt" style="font-size:0.75rem; margin-left:auto;"></i></a>
       <a href="/minecraft" class="<%= typeof currentPage !== 'undefined' && currentPage === 'minecraft' ? 'active' : '' %>"><i class="fas fa-cubes"></i> <%= t.nav.minecraft %></a>
+      <a href="/links" class="<%= typeof currentPage !== 'undefined' && currentPage === 'links' ? 'active' : '' %>"><i class="fas fa-link"></i> <%= lang === 'en' ? 'Links Hub' : 'Direktori Tautan' %></a>
       <a href="/contact" class="nav-mobile__cta"><i class="fas fa-envelope"></i> <%= t.nav.contact %></a>
 
       <!-- Mobile Language Switcher in Drawer -->

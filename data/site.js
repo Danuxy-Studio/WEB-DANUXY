@@ -1,6 +1,6 @@
 module.exports = {
     name: "Danuxy Studio",
-    tagline: "Building things, breaking things, and vibe coding my way through it.",
+    tagline: "Building systems, breaking limits, and crafting code that actually runs.",
     description: "Studio digital independen yang membangun platform WhatsApp, server Minecraft, website, sistem otomasi, dan eksperimen software.",
     url: "https://danuxy.com",
     email: "contact@danuxy.com",

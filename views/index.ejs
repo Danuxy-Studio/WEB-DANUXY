@@ -21,6 +21,7 @@
         <div class="hero__actions">
           <a href="/projects" class="btn btn--primary"><i class="fas fa-folder-open"></i> <%= t.common.exploreProjects %></a>
           <a href="/contact" class="btn btn--outline"><i class="fas fa-paper-plane"></i> <%= t.common.letsWorkTogether %></a>
+          <a href="/links" class="btn btn--ghost"><i class="fas fa-link"></i> <%= lang === 'en' ? 'Links Hub' : 'Direktori & Komunitas' %></a>
         </div>
       </div>
     </section>
@@ -34,12 +35,49 @@
             <h2 class="section__title"><%= t.home.aboutTitle %></h2>
             <p class="section__desc"><%= t.home.aboutDesc %></p>
             <div class="intro__philosophy">
-              <% t.home.philosophy.forEach(function(step, idx) { %>
-                <span class="intro__step"><%= step %></span>
-                <% if (idx < t.home.philosophy.length - 1) { %>
-                  <span class="intro__step-arrow"><i class="fas fa-chevron-right"></i></span>
-                <% } %>
-              <% }); %>
+              <span class="intro__philosophy-tag"><i class="fas fa-arrows-rotate"></i> <%= lang === 'en' ? 'Workflow:' : 'Alur Kerja:' %></span>
+              <div class="intro__steps-list">
+                <% t.home.philosophy.forEach(function(step, idx) { %>
+                  <span class="intro__step"><%= step %></span>
+                  <% if (idx < t.home.philosophy.length - 1) { %>
+                    <span class="intro__step-arrow" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+                  <% } %>
+                <% }); %>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="intro__card">
+              <div class="intro__card-header">
+                <div class="intro__card-badge">
+                  <span class="pulse-dot"></span>
+                  <span><%= lang === 'en' ? 'Ecosystem Snapshot' : 'Ringkasan Ekosistem' %></span>
+                </div>
+                <span class="intro__card-meta">Live & Active</span>
+              </div>
+              <div class="intro__card-items">
+                <div class="intro__feature-pill">
+                  <div class="intro__feature-icon" style="color: #25d366;"><i class="fab fa-whatsapp"></i></div>
+                  <div class="intro__feature-text">
+                    <strong>NIXI Platform SaaS</strong>
+                    <small><%= lang === 'en' ? 'Autonomous WhatsApp Gateway & Multi-Device Bot' : 'Gateway WhatsApp Mandiri & Multi-Device' %></small>
+                  </div>
+                </div>
+                <div class="intro__feature-pill">
+                  <div class="intro__feature-icon" style="color: #38bdf8;"><i class="fas fa-cube"></i></div>
+                  <div class="intro__feature-text">
+                    <strong>DanuxyCore Engine</strong>
+                    <small><%= lang === 'en' ? 'Dual Native GUI for Java & Bedrock (Zero Mod)' : 'Dual Native GUI Java 1.21.8+ & Bedrock' %></small>
+                  </div>
+                </div>
+                <div class="intro__feature-pill">
+                  <div class="intro__feature-icon" style="color: #f59e0b;"><i class="fas fa-gem"></i></div>
+                  <div class="intro__feature-text">
+                    <strong>Danuxy Store & Digital</strong>
+                    <small><%= lang === 'en' ? 'Verified Premium Apps & Instant Game Top-Up' : 'Akun Premium Resmi & Top Up Game Cepat' %></small>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -61,15 +99,15 @@
               <h3 class="project-card__title"><%= project.name %></h3>
               <p class="project-card__desc"><%= project.description %></p>
               
-              <div class="project-card__actions" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:16px;">
+              <div class="project-card__actions">
                 <% if (project.link) { %>
-                <a href="<%= project.link %>" class="project-card__cta">
+                <a href="<%= project.link %>" class="btn btn--outline btn--sm project-card__btn-detail">
                   <%= t.common.viewDetails %> <i class="fas fa-arrow-right"></i>
                 </a>
                 <% } %>
 
                 <% if (project.externalLink) { %>
-                <a href="<%= project.externalLink %>" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm" style="font-size:0.82rem; padding:8px 14px;">
+                <a href="<%= project.externalLink %>" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp btn--sm project-card__btn-external">
                   <i class="fab fa-whatsapp"></i> <%= t.common.visitNixi %> <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i>
                 </a>
                 <% } %>
@@ -94,23 +132,31 @@
         <div class="category-grid">
           <div class="category-card">
             <div class="category-card__icon"><i class="fab fa-whatsapp"></i></div>
-            <h3><%= t.home.categories.wa.title %></h3>
-            <p><%= t.home.categories.wa.desc %></p>
+            <div class="category-card__content">
+              <h3><%= t.home.categories.wa.title %></h3>
+              <p><%= t.home.categories.wa.desc %></p>
+            </div>
           </div>
           <div class="category-card">
             <div class="category-card__icon"><i class="fas fa-cubes"></i></div>
-            <h3><%= t.home.categories.mc.title %></h3>
-            <p><%= t.home.categories.mc.desc %></p>
+            <div class="category-card__content">
+              <h3><%= t.home.categories.mc.title %></h3>
+              <p><%= t.home.categories.mc.desc %></p>
+            </div>
           </div>
           <div class="category-card">
             <div class="category-card__icon"><i class="fas fa-globe"></i></div>
-            <h3><%= t.home.categories.web.title %></h3>
-            <p><%= t.home.categories.web.desc %></p>
+            <div class="category-card__content">
+              <h3><%= t.home.categories.web.title %></h3>
+              <p><%= t.home.categories.web.desc %></p>
+            </div>
           </div>
           <div class="category-card">
             <div class="category-card__icon"><i class="fas fa-flask"></i></div>
-            <h3><%= t.home.categories.exp.title %></h3>
-            <p><%= t.home.categories.exp.desc %></p>
+            <div class="category-card__content">
+              <h3><%= t.home.categories.exp.title %></h3>
+              <p><%= t.home.categories.exp.desc %></p>
+            </div>
           </div>
         </div>
       </div>
@@ -127,8 +173,10 @@
           <% t.home.advantages.forEach(function(adv) { %>
           <div class="category-card">
             <div class="category-card__icon"><i class="fas <%= adv.icon %>"></i></div>
-            <h3><%= adv.title %></h3>
-            <p><%= adv.desc %></p>
+            <div class="category-card__content">
+              <h3><%= adv.title %></h3>
+              <p><%= adv.desc %></p>
+            </div>
           </div>
           <% }); %>
         </div>
