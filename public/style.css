@@ -1167,7 +1167,8 @@ img {
     gap: 24px;
 }
 
-.footer__col h4 {
+.footer__col h4,
+.footer__col-title {
     font-size: 0.8rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -2422,7 +2423,8 @@ img {
         gap: 20px 16px;
     }
 
-    .footer__col h4 {
+    .footer__col h4,
+    .footer__col-title {
         margin-bottom: 8px;
     }
 

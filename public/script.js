@@ -24,31 +24,8 @@
 
     function initLanguage() {
         var currentHtmlLang = document.documentElement.lang || "id";
-        var savedLang = localStorage.getItem("danuxy_lang");
-
-        if (savedLang && (savedLang === "id" || savedLang === "en")) {
-            if (savedLang !== currentHtmlLang) {
-                document.cookie = "danuxy_lang=" + savedLang + "; Path=/; Max-Age=31536000; SameSite=Lax";
-                var url = new URL(window.location.href);
-                if (url.searchParams.get("lang") !== savedLang) {
-                    url.searchParams.set("lang", savedLang);
-                    window.location.replace(url.toString());
-                    return;
-                }
-            }
-        } else {
-            var browserLang = (navigator.language || navigator.userLanguage || "id").toLowerCase();
-            var detected = browserLang.startsWith("en") ? "en" : "id";
-            localStorage.setItem("danuxy_lang", detected);
-
-            if (detected !== currentHtmlLang) {
-                document.cookie = "danuxy_lang=" + detected + "; Path=/; Max-Age=31536000; SameSite=Lax";
-                var autoUrl = new URL(window.location.href);
-                autoUrl.searchParams.set("lang", detected);
-                window.location.replace(autoUrl.toString());
-                return;
-            }
-        }
+        localStorage.setItem("danuxy_lang", currentHtmlLang);
+        document.cookie = "danuxy_lang=" + currentHtmlLang + "; Path=/; Max-Age=31536000; SameSite=Lax";
 
         var langBtns = document.querySelectorAll(".lang-btn");
         langBtns.forEach(function (btn) {

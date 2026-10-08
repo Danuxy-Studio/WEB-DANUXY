@@ -2,7 +2,7 @@
   <div class="container footer__inner">
     <div class="footer__brand">
       <a href="/" class="footer__logo-link">
-        <img src="/public/images/logo-icon.png" alt="Danuxy Studio" width="32" height="32" loading="lazy" decoding="async" />
+        <img src="/public/images/logo-icon.webp" alt="Danuxy Studio" width="32" height="32" loading="lazy" decoding="async" />
         <span>Danuxy Studio</span>
       </a>
       <p class="footer__tagline">
@@ -15,9 +15,9 @@
 
     <div class="footer__nav">
       <div class="footer__col">
-        <h4>
+        <p class="footer__col-title">
           <%= lang==='en' ? 'Navigate' : 'Navigasi' %>
-        </h4>
+        </p>
         <a href="/projects">
           <%= t.nav.projects %>
         </a>
@@ -35,9 +35,9 @@
         </a>
       </div>
       <div class="footer__col">
-        <h4>
+        <p class="footer__col-title">
           <%= lang==='en' ? 'Ecosystem' : 'Ekosistem' %>
-        </h4>
+        </p>
         <a href="https://nixi.danuxy.com/" target="_blank" rel="noopener noreferrer">NIXI Platform <i
             class="fas fa-external-link-alt" style="font-size:0.75rem;" aria-hidden="true"></i></a>
         <a href="/minecraft">Minecraft</a>
@@ -46,9 +46,9 @@
         <a href="/links"><%= lang==='en' ? 'Quick Links' : 'Direktori Tautan' %></a>
       </div>
       <div class="footer__col">
-        <h4>
+        <p class="footer__col-title">
           <%= lang==='en' ? 'Legal' : 'Legalitas' %>
-        </h4>
+        </p>
         <a href="/privacy">
           <%= t.legal.privacyTitle %>
         </a>

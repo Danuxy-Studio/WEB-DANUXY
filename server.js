@@ -6,16 +6,23 @@ const { i18n, localizedProjects, localizedArticles } = require("./i18n");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Security & overhead reduction
+app.disable("x-powered-by");
+
 // Enable HTTP Compression (Gzip / Deflate)
-app.use(compression());
+app.use(compression({
+    level: 6,
+    threshold: 1024
+}));
 
 // View engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Static files with Cache-Control headers
+// Static files with 1-year Immutable Cache-Control headers
 app.use("/public", express.static(path.join(__dirname, "public"), {
-    maxAge: "30d",
+    maxAge: "365d",
+    immutable: true,
     etag: true
 }));
 
