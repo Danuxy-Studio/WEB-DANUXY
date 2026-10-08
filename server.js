@@ -673,25 +673,25 @@ app.get("/links", function (req, res) {
     const linksFaq = [
         {
             q: lang === "en" ? "Where can I try NIXI WhatsApp Bot features for free?" : "Di mana grup untuk mencoba fitur NIXI Bot secara gratis?",
-            a: lang === "en" ? "You can join our interactive trial community group to test all NIXI WhatsApp Bot features, commands, and automation live for free: https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q" : "Anda dapat bergabung langsung ke grup uji coba interaktif kami untuk mencoba seluruh fitur, perintah, dan otomasi NIXI Bot secara gratis: https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q",
+            a: lang === "en" ? "You can join our interactive community trial group on WhatsApp to test all NIXI WhatsApp Bot features, commands, and automation live for free without any registration required." : "Anda dapat bergabung langsung ke grup uji coba interaktif kami di WhatsApp untuk mencoba seluruh fitur, perintah, dan otomasi NIXI Bot secara gratis tanpa perlu registrasi apa pun.",
             link: "https://chat.whatsapp.com/J2WkVrPGBrIDYBy5gQAg6q",
             linkText: lang === "en" ? "Join Free Trial Group" : "Gabung Grup Coba Gratis"
         },
         {
             q: lang === "en" ? "What is the official NIXI Bot WhatsApp update channel?" : "Di mana saluran update resmi tentang NIXI Bot?",
-            a: lang === "en" ? "Official updates, changelogs, and announcements for NIXI Bot are broadcasted through our WhatsApp Channel: https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n" : "Informasi pembaruan versi, rilis fitur baru, dan status gateway NIXI Bot disiarkan melalui Saluran WhatsApp: https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n",
+            a: lang === "en" ? "Official updates, changelogs, new features, and gateway operational announcements for NIXI Bot are broadcasted regularly through our official WhatsApp Channel." : "Informasi pembaruan versi, rilis fitur baru, changelog, dan pengumuman operasional gateway NIXI Bot disiarkan secara berkala melalui Saluran WhatsApp resmi kami.",
             link: "https://whatsapp.com/channel/0029Vb8mQRlF1YlTEn1fCT0n",
             linkText: lang === "en" ? "Follow NIXI Channel" : "Ikuti Saluran NIXI"
         },
         {
             q: lang === "en" ? "Where can I follow official announcements from Danuxy Studio?" : "Di mana saluran resmi Danuxy Studio?",
-            a: lang === "en" ? "Official studio announcements, software releases, and digital ecosystem news are broadcasted on our main WhatsApp Channel: https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L" : "Pusat siaran berita resmi Danuxy Studio, rilis proyek software, dan pengumuman studio dapat diikuti di Saluran WhatsApp: https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L",
+            a: lang === "en" ? "Official studio announcements, software releases, ecosystem news, and development updates are broadcasted on our main WhatsApp Channel." : "Pusat siaran berita resmi Danuxy Studio, rilis proyek software, berita ekosistem digital, dan update pengembangan dapat Anda ikuti langsung di Saluran WhatsApp resmi.",
             link: "https://whatsapp.com/channel/0029Vb6RsCAEAKWDFTrHdu0L",
             linkText: lang === "en" ? "Follow Danuxy Channel" : "Ikuti Saluran Danuxy"
         },
         {
             q: lang === "en" ? "What is Danuxy Store and how can I order?" : "Apa itu Danuxy Store dan bagaimana cara ordernya?",
-            a: lang === "en" ? "Danuxy Store is a verified digital provider for premium app subscriptions with warranty and instant game top-ups. Join our verified store group: https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ" : "Danuxy Store adalah penyedia layanan digital resmi untuk pembelian akun aplikasi premium bergaransi dan top up game terpercaya dengan proses cepat. Gabung ke grup resmi Danuxy Store: https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ",
+            a: lang === "en" ? "Danuxy Store is a verified digital provider for premium app subscriptions with warranty and instant game top-ups. You can order directly by joining our verified WhatsApp group." : "Danuxy Store adalah penyedia layanan digital resmi untuk pembelian akun aplikasi premium bergaransi dan top up game terpercaya dengan proses cepat. Anda dapat memesan langsung dengan masuk ke grup WhatsApp resmi.",
             link: "https://chat.whatsapp.com/JkSukMRhJx67QbL9oMFcXQ",
             linkText: lang === "en" ? "Join Danuxy Store" : "Gabung Danuxy Store"
         }
