@@ -5,13 +5,6 @@
         { "src": "server.js", "use": "@vercel/node" }
     ],
     "routes": [
-        {
-            "src": "/public/(.*)",
-            "headers": {
-                "cache-control": "public, max-age=31536000, immutable"
-            },
-            "dest": "/public/$1"
-        },
         { "src": "/(.*)", "dest": "server.js" }
     ]
 }
