@@ -51,17 +51,17 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://danuxy.com/blog/pengalaman-membuat-nixi</loc>
+    <loc>https://danuxy.com/blog/building-nixi-from-scratch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://danuxy.com/blog/arsitektur-server-minecraft-modern</loc>
+    <loc>https://danuxy.com/blog/running-minecraft-on-budget-vps</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://danuxy.com/blog/panduan-setup-proxy-velocity</loc>
+    <loc>https://danuxy.com/blog/vibe-coding-building-with-ai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    // ===== LANGUAGE SYSTEM =====
+    // Language system
     function switchLanguage(targetLang) {
         if (!targetLang || (targetLang !== "id" && targetLang !== "en")) return;
         localStorage.setItem("danuxy_lang", targetLang);
@@ -9,7 +9,17 @@
 
         var url = new URL(window.location.href);
         url.searchParams.set("lang", targetLang);
-        window.location.href = url.toString();
+
+        var bar = document.getElementById("pageProgressBar");
+        if (bar) {
+            bar.classList.remove("complete", "fade-out");
+            bar.classList.add("active");
+        }
+        document.body.classList.add("page-is-exiting");
+
+        setTimeout(function () {
+            window.location.href = url.toString();
+        }, 120);
     }
 
     function initLanguage() {
@@ -27,7 +37,6 @@
                 }
             }
         } else {
-            // First time visitor: Auto-detect from browser/system language
             var browserLang = (navigator.language || navigator.userLanguage || "id").toLowerCase();
             var detected = browserLang.startsWith("en") ? "en" : "id";
             localStorage.setItem("danuxy_lang", detected);
@@ -41,7 +50,6 @@
             }
         }
 
-        // Attach click listeners to language switch buttons
         var langBtns = document.querySelectorAll(".lang-btn");
         langBtns.forEach(function (btn) {
             btn.addEventListener("click", function (e) {
@@ -52,7 +60,7 @@
         });
     }
 
-    // ===== THEME SYSTEM =====
+    // Theme system
     var themeToggleBtn = document.getElementById("themeToggle");
     var themeIcon = document.getElementById("themeIcon");
 
@@ -88,7 +96,7 @@
         });
     }
 
-    // ===== MOBILE NAV =====
+    // Mobile navigation
     var hamburger = document.getElementById("hamburger");
     var navMobile = document.getElementById("navMobile");
     var overlay = document.getElementById("navOverlay");
@@ -122,14 +130,13 @@
         });
     }
 
-    // Close menu on Escape
     document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
             toggleMenu(false);
         }
     });
 
-    // ===== SCROLL ANIMATIONS =====
+    // Scroll observer
     function initScrollAnimations() {
         var fadeEls = document.querySelectorAll(".fade-up");
         if (!fadeEls.length) return;
@@ -154,7 +161,7 @@
         }
     }
 
-    // ===== COOKIE CONSENT =====
+    // Cookie consent
     function initCookieConsent() {
         var banner = document.getElementById("cookieConsent");
         var acceptBtn = document.getElementById("cookieAccept");
@@ -164,7 +171,7 @@
         if (!consent) {
             setTimeout(function () {
                 banner.classList.add("show");
-            }, 1500);
+            }, 1200);
         }
 
         if (acceptBtn) {
@@ -175,228 +182,32 @@
         }
     }
 
-    // ===== HEADER SCROLL SHADOW =====
+    // Header shadow on scroll
     var header = document.getElementById("header");
     window.addEventListener("scroll", function () {
         if (!header) return;
         var currentScroll = window.pageYOffset;
-        if (currentScroll > 50) {
-            header.style.boxShadow = "0 2px 20px rgba(0,0,0,0.08)";
+        if (currentScroll > 40) {
+            header.style.boxShadow = "0 2px 16px rgba(0,0,0,0.1)";
         } else {
             header.style.boxShadow = "none";
         }
     }, { passive: true });
 
-    // ===== CYBER-LUMINOUS HERO ANIMATION (INSPIRED BY DANUXY VIDEO CONCEPT) =====
-    function initCyberHeroCanvas() {
-        var canvas = document.getElementById("heroCyberCanvas");
-        if (!canvas) return;
-
-        var ctx = canvas.getContext("2d");
-        if (!ctx) return;
-
-        // Check reduced motion preference
-        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            return;
-        }
-
-        var width, height, dpr;
-        var animationFrameId = null;
-        var isVisible = true;
-        var mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
-
-        function resize() {
-            var rect = canvas.getBoundingClientRect();
-            dpr = Math.min(window.devicePixelRatio || 1, 2);
-            width = rect.width;
-            height = rect.height;
-            canvas.width = width * dpr;
-            canvas.height = height * dpr;
-            ctx.scale(dpr, dpr);
-        }
-
-        resize();
-        window.addEventListener("resize", resize, { passive: true });
-
-        // Mouse tracking for parallax
-        window.addEventListener("mousemove", function (e) {
-            var rect = canvas.getBoundingClientRect();
-            if (e.clientY <= rect.bottom && e.clientY >= rect.top) {
-                mouse.targetX = e.clientX - rect.left;
-                mouse.targetY = e.clientY - rect.top;
-            }
-        }, { passive: true });
-
-        // Cyber light beams (curved energy streaks)
-        var beams = [];
-        var numBeams = 5;
-        for (var i = 0; i < numBeams; i++) {
-            beams.push({
-                yOffset: (height * 0.3) + (i * 70),
-                speed: 0.0008 + (i * 0.0003),
-                amplitude: 45 + (i * 15),
-                frequency: 0.0018 + (i * 0.0005),
-                phase: i * 1.3,
-                sparkPos: (i * 0.2) % 1,
-                sparkSpeed: 0.003 + (i * 0.001),
-                color: i % 2 === 0 ? "rgba(0, 240, 255, " : "rgba(56, 189, 248, "
-            });
-        }
-
-        // Ambient cyber sparks
-        var sparks = [];
-        var numSparks = 28;
-        for (var s = 0; s < numSparks; s++) {
-            sparks.push({
-                x: Math.random() * (width || 800),
-                y: Math.random() * (height || 500),
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: -Math.random() * 0.4 - 0.1,
-                size: Math.random() * 2 + 1,
-                alpha: Math.random() * 0.6 + 0.2,
-                color: Math.random() > 0.4 ? "rgba(0, 240, 255," : "rgba(99, 102, 241,"
-            });
-        }
-
-        var time = 0;
-
-        function draw() {
-            if (!isVisible) return;
-
-            time += 1;
-            ctx.clearRect(0, 0, width, height);
-
-            // Smooth mouse interpolation
-            mouse.x += (mouse.targetX - mouse.x) * 0.05;
-            mouse.y += (mouse.targetY - mouse.y) * 0.05;
-
-            // 1. Draw glowing silky cyber waves at the bottom
-            var waveGlow = ctx.createLinearGradient(0, height * 0.5, 0, height);
-            waveGlow.addColorStop(0, "rgba(2, 6, 23, 0)");
-            waveGlow.addColorStop(0.7, "rgba(14, 165, 233, 0.04)");
-            waveGlow.addColorStop(1, "rgba(59, 130, 246, 0.08)");
-
-            ctx.fillStyle = waveGlow;
-            ctx.beginPath();
-            ctx.moveTo(0, height);
-            for (var x = 0; x <= width; x += 30) {
-                var waveY = height - 55 + Math.sin(x * 0.004 + time * 0.015) * 18 + Math.cos(x * 0.002 - time * 0.01) * 12;
-                ctx.lineTo(x, waveY);
-            }
-            ctx.lineTo(width, height);
-            ctx.closePath();
-            ctx.fill();
-
-            // 2. Draw curved cyber light beams with energy pulses
-            beams.forEach(function (b, idx) {
-                ctx.beginPath();
-                var startY = b.yOffset + Math.sin(time * b.speed * 20 + b.phase) * b.amplitude;
-
-                var points = [];
-                for (var px = 0; px <= width; px += 40) {
-                    var py = b.yOffset +
-                        Math.sin(px * b.frequency + time * b.speed * 15 + b.phase) * b.amplitude +
-                        Math.cos((px * 0.001) + time * 0.005) * 15;
-
-                    // Mouse gentle repulsion
-                    if (mouse.x > 0) {
-                        var dx = px - mouse.x;
-                        var dy = py - mouse.y;
-                        var dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 180) {
-                            var force = (1 - dist / 180) * 22;
-                            py += dy > 0 ? force : -force;
-                        }
-                    }
-                    points.push({ x: px, y: py });
-                }
-
-                if (points.length > 0) {
-                    ctx.moveTo(points[0].x, points[0].y);
-                    for (var p = 1; p < points.length; p++) {
-                        ctx.lineTo(points[p].x, points[p].y);
-                    }
-
-                    // Stroke glow
-                    var beamGrad = ctx.createLinearGradient(0, 0, width, 0);
-                    beamGrad.addColorStop(0, "rgba(14, 165, 233, 0)");
-                    beamGrad.addColorStop(0.2, b.color + "0.15)");
-                    beamGrad.addColorStop(0.5, b.color + "0.35)");
-                    beamGrad.addColorStop(0.8, b.color + "0.15)");
-                    beamGrad.addColorStop(1, "rgba(59, 130, 246, 0)");
-
-                    ctx.strokeStyle = beamGrad;
-                    ctx.lineWidth = 1.6;
-                    ctx.shadowColor = "rgba(0, 240, 255, 0.4)";
-                    ctx.shadowBlur = 8;
-                    ctx.stroke();
-                    ctx.shadowBlur = 0;
-
-                    // Fast laser spark travelling along this curve
-                    b.sparkPos = (b.sparkPos + b.sparkSpeed) % 1;
-                    var sparkIndex = Math.floor(b.sparkPos * (points.length - 1));
-                    if (points[sparkIndex]) {
-                        var sp = points[sparkIndex];
-                        var sparkGrad = ctx.createRadialGradient(sp.x, sp.y, 0, sp.x, sp.y, 14);
-                        sparkGrad.addColorStop(0, "#ffffff");
-                        sparkGrad.addColorStop(0.3, "rgba(0, 240, 255, 0.9)");
-                        sparkGrad.addColorStop(1, "rgba(0, 240, 255, 0)");
-
-                        ctx.fillStyle = sparkGrad;
-                        ctx.beginPath();
-                        ctx.arc(sp.x, sp.y, 10, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
-            });
-
-            // 3. Draw ambient cyber particles (sparks)
-            sparks.forEach(function (s) {
-                s.x += s.vx;
-                s.y += s.vy;
-                if (s.y < 0) { s.y = height; s.x = Math.random() * width; }
-                if (s.x < 0) s.x = width;
-                if (s.x > width) s.x = 0;
-
-                ctx.fillStyle = s.color + (s.alpha * 0.7) + ")";
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-                ctx.fill();
-            });
-
-            animationFrameId = requestAnimationFrame(draw);
-        }
-
-        // Pause animation when hero leaves viewport for max efficiency
-        if ("IntersectionObserver" in window) {
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    isVisible = entry.isIntersecting;
-                    if (isVisible && !animationFrameId) {
-                        animationFrameId = requestAnimationFrame(draw);
-                    }
-                });
-            }, { threshold: 0.05 });
-            observer.observe(canvas.parentElement || canvas);
-        }
-
-        animationFrameId = requestAnimationFrame(draw);
-    }
-
-    // ===== IMAGE LIGHTBOX MODAL (NO REDIRECT / PREVIEW FULLSCREEN) =====
+    // Lightbox modal
     function initImageLightbox() {
         var lightbox = document.getElementById("imageLightbox");
         if (!lightbox) return;
 
         var lightboxImg = document.getElementById("lightboxImg");
         var lightboxCaption = document.getElementById("lightboxCaption");
-        var overlay = document.getElementById("lightboxOverlay");
+        var overlayEl = document.getElementById("lightboxOverlay");
         var closeBtn = document.getElementById("lightboxClose");
 
         function openLightbox(src, caption) {
             if (!src) return;
             lightboxImg.src = src;
-            lightboxImg.alt = caption || "Screenshot preview";
+            lightboxImg.alt = caption || "Preview";
             if (lightboxCaption) {
                 lightboxCaption.textContent = caption || "";
                 lightboxCaption.style.display = caption ? "block" : "none";
@@ -414,10 +225,9 @@
                 if (!lightbox.classList.contains("active")) {
                     lightboxImg.src = "";
                 }
-            }, 250);
+            }, 200);
         }
 
-        // Delegate click for any .lightbox-trigger element
         document.addEventListener("click", function (e) {
             var trigger = e.target.closest(".lightbox-trigger");
             if (trigger) {
@@ -432,7 +242,6 @@
             }
         });
 
-        // Trigger on Enter or Space for accessibility
         document.addEventListener("keydown", function (e) {
             if ((e.key === "Enter" || e.key === " ") && document.activeElement && document.activeElement.classList.contains("lightbox-trigger")) {
                 e.preventDefault();
@@ -447,10 +256,9 @@
             }
         });
 
-        if (overlay) overlay.addEventListener("click", closeLightbox);
+        if (overlayEl) overlayEl.addEventListener("click", closeLightbox);
         if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
 
-        // Escape key closes modal
         document.addEventListener("keydown", function (e) {
             if (e.key === "Escape" && lightbox.classList.contains("active")) {
                 closeLightbox();
@@ -458,12 +266,105 @@
         });
     }
 
-    // ===== INIT =====
+    // Page Transitions & Progress Bar System
+    function initPageTransitions() {
+        var bar = document.getElementById("pageProgressBar");
+        if (!bar) {
+            bar = document.createElement("div");
+            bar.id = "pageProgressBar";
+            bar.className = "page-progress-bar";
+            bar.setAttribute("aria-hidden", "true");
+            document.body.prepend(bar);
+        }
+
+        // Complete loading animation on page enter
+        bar.classList.add("complete");
+        setTimeout(function () {
+            bar.classList.add("fade-out");
+            setTimeout(function () {
+                bar.classList.remove("active", "complete", "fade-out");
+            }, 200);
+        }, 80);
+
+        // Reset if restored via browser back/forward cache (bfcache)
+        window.addEventListener("pageshow", function () {
+            document.body.classList.remove("page-is-exiting");
+            if (bar) {
+                bar.classList.remove("active", "complete", "fade-out");
+            }
+        });
+
+        // Intercept internal link navigation
+        document.addEventListener("click", function (e) {
+            var link = e.target.closest("a");
+            if (!link) return;
+
+            // Allow default for modified clicks or right clicks
+            if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+                return;
+            }
+
+            // Skip if target is outside current window
+            if (link.target && link.target !== "_self") {
+                return;
+            }
+
+            // Skip downloads and protocol links
+            var rawHref = link.getAttribute("href");
+            if (!rawHref || rawHref.startsWith("#") || rawHref.startsWith("javascript:") || rawHref.startsWith("mailto:") || rawHref.startsWith("tel:") || link.hasAttribute("download")) {
+                return;
+            }
+
+            var targetUrl;
+            try {
+                targetUrl = new URL(link.href, window.location.href);
+            } catch (err) {
+                return;
+            }
+
+            // Skip external links
+            if (targetUrl.origin !== window.location.origin) {
+                return;
+            }
+
+            // Skip same-page anchor jumps
+            if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search) {
+                return;
+            }
+
+            // If mobile menu is open, close it cleanly
+            if (typeof toggleMenu === "function") {
+                var navMobile = document.getElementById("navMobile");
+                if (navMobile && navMobile.classList.contains("open")) {
+                    toggleMenu(false);
+                }
+            }
+
+            // Start progress bar animation
+            bar.classList.remove("complete", "fade-out");
+            bar.classList.add("active");
+
+            // Respect accessibility reduced-motion
+            if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                return;
+            }
+
+            // Trigger smooth exit transition
+            e.preventDefault();
+            document.body.classList.add("page-is-exiting");
+
+            setTimeout(function () {
+                window.location.href = targetUrl.href;
+            }, 120);
+        });
+    }
+
+    // Init
     document.addEventListener("DOMContentLoaded", function () {
+        initPageTransitions();
         initLanguage();
         initScrollAnimations();
         initCookieConsent();
-        initCyberHeroCanvas();
         initImageLightbox();
     });
 })();

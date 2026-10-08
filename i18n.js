@@ -1,4 +1,4 @@
-// ===== DANUXY STUDIO — MULTI-LANGUAGE SYSTEM (ID & EN) =====
+// Danuxy Studio Multi-Language System (ID & EN)
 
 const i18n = {
     id: {
@@ -180,13 +180,13 @@ const i18n = {
             storyP1: "Danuxy Studio lahir dari rasa ingin tahu yang kuat terhadap cara kerja teknologi. Dimulai dari membuat script sederhana, server game, hingga mengelola koneksi bot WhatsApp, setiap eksperimen menjadi batu loncatan untuk memahami arsitektur perangkat lunak yang lebih solid.",
             storyP2: "Kami percaya pada pembelajaran berbasis praktik langsung. Bukan sekadar membaca teori, melainkan membangun sesuatu yang nyata, mengujinya di dunia nyata, mengatasi masalah yang muncul, dan menjadikannya lebih baik.",
             philosophyTitle: "Filosofi Kerja",
-            processText: "Proses development tidak selalu mulus tanpa kendala. Selalu ada trial and error, server crash, koneksi terputus, dan bug yang membutuhkan ketelitian tinggi. Namun di situlah nilai sebuah sistem dibangun — satu persoalan diselesaikan satu per satu secara konsisten.",
+            processText: "Proses development tidak selalu mulus tanpa kendala. Selalu ada trial and error, server crash, koneksi terputus, dan bug yang membutuhkan ketelitian tinggi. Namun di situlah nilai sebuah sistem dibangun: satu persoalan diselesaikan satu per satu secara konsisten.",
             whatWeBuildTitle: "Fokus Project Saat Ini",
             whatWeBuildIntro: "Fokus utama yang sedang aktif dikembangkan oleh Danuxy Studio:",
             projectsList: [
-                "NIXI — Platform WhatsApp Gateway mandiri yang memungkinkan setiap pengguna menjalankan bot mereka sendiri dengan kontrol penuh.",
-                "DanuxyCore — Ekosistem plugin dan tools custom untuk server Minecraft dengan performa tinggi.",
-                "Automation & Web Tools — Solusi web terintegrasi dan sistem automasi alur kerja."
+                "NIXI : Platform WhatsApp Gateway mandiri yang memungkinkan setiap pengguna menjalankan bot mereka sendiri dengan kontrol penuh.",
+                "DanuxyCore : Ekosistem plugin dan tools custom untuk server Minecraft dengan performa tinggi.",
+                "Automation & Web Tools : Solusi web terintegrasi dan sistem automasi alur kerja."
             ],
             techTitle: "Tech Stack",
             techDesc: "Teknologi inti yang kami gunakan dalam pengembangan sehari-hari:",
@@ -234,7 +234,7 @@ const i18n = {
         },
         nixi: {
             badge: "WhatsApp SaaS Platform",
-            heroTitle: "NIXI — Your WhatsApp, Your Bot.",
+            heroTitle: "NIXI : Your WhatsApp, Your Bot.",
             heroDesc: "NIXI adalah platform WhatsApp Gateway yang dikembangkan oleh Danuxy Studio. Hubungkan nomor WhatsApp Anda secara instan dan jalankan bot milik Anda sendiri dengan kendali penuh.",
             visitBtn: "Buka Platform NIXI",
             learnBtn: "Pelajari Fitur",
@@ -505,15 +505,15 @@ const i18n = {
             desc: "The story behind Danuxy Studio, our core philosophy, and the technologies we master.",
             storyTitle: "Our Story",
             storyP1: "Danuxy Studio was born from deep curiosity about how software truly works beneath the surface. Starting from simple automation scripts and game servers to managing real-time WhatsApp connections, every experiment paved the way toward building robust software systems.",
-            storyP2: "We believe in hands-on learning. We don't just stay in theory — we build actual products, test them in real-world environments, break them, fix the bugs, and make them stronger.",
+            storyP2: "We believe in hands-on learning. We don't just stay in theory, we build actual products, test them in real-world environments, break them, fix the bugs, and make them stronger.",
             philosophyTitle: "Our Philosophy",
-            processText: "Software development is rarely a straight line. There is trial and error, unexpected crashes, dropped connections, and challenging bugs. That is how true resilience is forged — solving one challenge at a time.",
+            processText: "Software development is rarely a straight line. There is trial and error, unexpected crashes, dropped connections, and challenging bugs. That is how true resilience is forged, solving one challenge at a time.",
             whatWeBuildTitle: "Current Focus Projects",
             whatWeBuildIntro: "Key initiatives actively developed by Danuxy Studio:",
             projectsList: [
-                "NIXI — An autonomous WhatsApp Gateway platform empowering users to connect their numbers and run their own bot instances.",
-                "DanuxyCore — A high-performance Java plugin ecosystem designed for Minecraft servers.",
-                "Automation & Web Tools — Modern digital tools, web dashboards, and workflow automations."
+                "NIXI : An autonomous WhatsApp Gateway platform empowering users to connect their numbers and run their own bot instances.",
+                "DanuxyCore : A high-performance Java plugin ecosystem designed for Minecraft servers.",
+                "Automation & Web Tools : Modern digital tools, web dashboards, and workflow automations."
             ],
             techTitle: "Technology Stack",
             techDesc: "Core technologies we work with every day:",
@@ -561,7 +561,7 @@ const i18n = {
         },
         nixi: {
             badge: "WhatsApp SaaS Platform",
-            heroTitle: "NIXI — Your WhatsApp, Your Bot.",
+            heroTitle: "NIXI : Your WhatsApp, Your Bot.",
             heroDesc: "NIXI is an autonomous WhatsApp Gateway platform developed by Danuxy Studio. Connect your WhatsApp number in seconds and run your very own bot instance with total control.",
             visitBtn: "Visit NIXI Platform",
             learnBtn: "Explore Features",
@@ -578,7 +578,7 @@ const i18n = {
                 },
                 {
                     title: "Dedicated Bot Instance",
-                    desc: "Each user gets an isolated bot session — not a crowded shared bot."
+                    desc: "Each user gets an isolated bot session instead of a crowded shared bot."
                 },
                 {
                     title: "Unified Dashboard",

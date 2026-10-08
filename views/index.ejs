@@ -9,33 +9,23 @@
   <%- include('partials/navbar') %>
 
   <main id="main">
-    <!-- HERO WITH CYBER-LUMINOUS CANVAS -->
-    <section class="hero hero--cyber">
-      <canvas id="heroCyberCanvas" class="hero__canvas" aria-hidden="true"></canvas>
-      <div class="hero__ambient-waves" aria-hidden="true"></div>
+    <!-- HERO SECTION -->
+    <section class="hero">
       <div class="container hero__content">
-        <div class="hero__logo-wrapper">
-          <div class="hero__logo-glow" aria-hidden="true"></div>
-          <div class="hero__logo-orbit" aria-hidden="true"></div>
-          <img src="/public/images/logo-icon.png" alt="Danuxy Studio Logo — Engineering Digital Experiences" class="hero__logo" width="88" height="88" fetchpriority="high" decoding="async" />
+        <div class="hero__brand-badge">
+          <img src="/public/images/logo-icon.png" alt="Danuxy Studio" class="hero__logo" width="76" height="76" fetchpriority="high" decoding="async" />
         </div>
-        <div class="hero__pill-motto">
-          <span class="motto-tag">BUILD</span>
-          <span class="motto-dot"></span>
-          <span class="motto-tag">CREATE</span>
-          <span class="motto-dot"></span>
-          <span class="motto-tag">GROW</span>
-        </div>
+        <p class="hero__subtitle-tag"><%= t.home.heroTagline %></p>
         <h1 class="hero__title"><%= t.home.heroTitle %></h1>
         <p class="hero__desc"><%= t.home.heroDesc %></p>
         <div class="hero__actions">
-          <a href="/projects" class="btn btn--primary btn--glow"><i class="fas fa-rocket"></i> <%= t.common.exploreProjects %></a>
+          <a href="/projects" class="btn btn--primary"><i class="fas fa-folder-open"></i> <%= t.common.exploreProjects %></a>
           <a href="/contact" class="btn btn--outline"><i class="fas fa-paper-plane"></i> <%= t.common.letsWorkTogether %></a>
         </div>
       </div>
     </section>
 
-    <!-- INTRO -->
+    <!-- INTRO & PHILOSOPHY -->
     <section class="section">
       <div class="container">
         <div class="intro">
@@ -47,7 +37,7 @@
               <% t.home.philosophy.forEach(function(step, idx) { %>
                 <span class="intro__step"><%= step %></span>
                 <% if (idx < t.home.philosophy.length - 1) { %>
-                  <span class="intro__step"><i class="fas fa-chevron-right"></i></span>
+                  <span class="intro__step-arrow"><i class="fas fa-chevron-right"></i></span>
                 <% } %>
               <% }); %>
             </div>
@@ -65,7 +55,7 @@
         </div>
         <div class="projects-grid">
           <% projects.forEach(function(project) { %>
-          <div class="project-card fade-up">
+          <div class="project-card">
             <div class="project-card__body">
               <span class="project-card__category"><%= project.category %></span>
               <h3 class="project-card__title"><%= project.name %></h3>
@@ -102,22 +92,22 @@
           <h2 class="section__title"><%= t.home.whatWeBuildTitle %></h2>
         </div>
         <div class="category-grid">
-          <div class="category-card fade-up">
+          <div class="category-card">
             <div class="category-card__icon"><i class="fab fa-whatsapp"></i></div>
             <h3><%= t.home.categories.wa.title %></h3>
             <p><%= t.home.categories.wa.desc %></p>
           </div>
-          <div class="category-card fade-up">
+          <div class="category-card">
             <div class="category-card__icon"><i class="fas fa-cubes"></i></div>
             <h3><%= t.home.categories.mc.title %></h3>
             <p><%= t.home.categories.mc.desc %></p>
           </div>
-          <div class="category-card fade-up">
+          <div class="category-card">
             <div class="category-card__icon"><i class="fas fa-globe"></i></div>
             <h3><%= t.home.categories.web.title %></h3>
             <p><%= t.home.categories.web.desc %></p>
           </div>
-          <div class="category-card fade-up">
+          <div class="category-card">
             <div class="category-card__icon"><i class="fas fa-flask"></i></div>
             <h3><%= t.home.categories.exp.title %></h3>
             <p><%= t.home.categories.exp.desc %></p>
@@ -126,7 +116,7 @@
       </div>
     </section>
 
-    <!-- STUDIO ADVANTAGES (WHY CHOOSE US) -->
+    <!-- STUDIO ADVANTAGES -->
     <section class="section section--alt">
       <div class="container">
         <div class="section__head section__head--center">
@@ -135,7 +125,7 @@
         </div>
         <div class="category-grid">
           <% t.home.advantages.forEach(function(adv) { %>
-          <div class="category-card fade-up">
+          <div class="category-card">
             <div class="category-card__icon"><i class="fas <%= adv.icon %>"></i></div>
             <h3><%= adv.title %></h3>
             <p><%= adv.desc %></p>
@@ -154,7 +144,7 @@
         </div>
         <div class="articles-grid">
           <% articles.forEach(function(article) { %>
-          <a href="/blog/<%= article.slug %>" class="article-card fade-up">
+          <a href="/blog/<%= article.slug %>" class="article-card">
             <div class="article-card__meta">
               <span class="article-card__category"><%= article.category %></span>
               <span>•</span>
@@ -171,7 +161,7 @@
       </div>
     </section>
 
-    <!-- FAQ SECTION (GOOGLE TOP 1 RANKING RICH SNIPPETS) -->
+    <!-- FAQ SECTION -->
     <section class="section section--alt" id="faq">
       <div class="container">
         <div class="section__head section__head--center">
@@ -179,8 +169,8 @@
           <h2 class="section__title"><%= t.home.faqTitle %></h2>
         </div>
         <div class="faq-grid">
-          <% t.home.faqList.forEach(function(faq, idx) { %>
-          <div class="faq-card fade-up">
+          <% t.home.faqList.forEach(function(faq) { %>
+          <div class="faq-card">
             <h3 class="faq-card__q"><i class="fas fa-circle-question"></i> <%= faq.q %></h3>
             <p class="faq-card__a"><%= faq.a %></p>
           </div>
@@ -192,9 +182,9 @@
     <!-- FINAL CTA -->
     <section class="cta-section">
       <div class="container">
-        <h2 class="cta-section__title fade-up"><%= t.home.ctaTitle %></h2>
-        <p class="cta-section__desc fade-up"><%= t.home.ctaDesc %></p>
-        <a href="/contact" class="btn btn--primary btn--glow fade-up"><%= t.home.ctaBtn %></a>
+        <h2 class="cta-section__title"><%= t.home.ctaTitle %></h2>
+        <p class="cta-section__desc"><%= t.home.ctaDesc %></p>
+        <a href="/contact" class="btn btn--primary"><%= t.home.ctaBtn %></a>
       </div>
     </section>
   </main>

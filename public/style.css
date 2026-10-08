@@ -1,4 +1,4 @@
-/* ===== DANUXY STUDIO — OFFICIAL WEBSITE STYLES ===== */
+/* Danuxy Studio Official Styles */
 /* Brand: Sky Blue #4ED1FF, Blue #2EA8FF, Light Blue #E6F4FF, Dark Navy */
 
 /* ===== RESET ===== */
@@ -427,42 +427,9 @@ img {
 
 /* ===== HERO ===== */
 .hero {
-    padding: 140px 0 90px;
+    padding: 130px 0 70px;
     position: relative;
     overflow: hidden;
-}
-
-.hero--cyber {
-    background: radial-gradient(ellipse 90% 70% at 50% 10%, rgba(14, 165, 233, 0.14), transparent 75%),
-                radial-gradient(circle 600px at 85% 20%, rgba(59, 130, 246, 0.09), transparent 70%),
-                radial-gradient(circle 500px at 15% 40%, rgba(99, 102, 241, 0.07), transparent 60%);
-}
-
-[data-theme="light"] .hero--cyber {
-    background: radial-gradient(ellipse 90% 70% at 50% 10%, rgba(2, 132, 199, 0.12), transparent 70%),
-                radial-gradient(circle 600px at 85% 20%, rgba(14, 165, 233, 0.08), transparent 65%),
-                radial-gradient(circle 500px at 15% 40%, rgba(99, 102, 241, 0.06), transparent 60%);
-}
-
-.hero__canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.hero__ambient-waves {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(180deg, transparent 0%, rgba(14, 165, 233, 0.03) 50%, var(--bg) 100%);
-    pointer-events: none;
-    z-index: 2;
 }
 
 .hero__content {
@@ -470,119 +437,50 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
-    max-width: 820px;
+    gap: 16px;
+    max-width: 800px;
     margin: 0 auto;
     position: relative;
-    z-index: 3;
+    z-index: 2;
 }
 
-/* Logo Orbital Glow (Danuxy Video Concept) */
-.hero__logo-wrapper {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 6px;
-}
-
-.hero__logo-glow {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 240, 255, 0.35) 0%, rgba(59, 130, 246, 0.15) 50%, transparent 70%);
-    filter: blur(14px);
-    z-index: 0;
-    animation: pulseAura 4s ease-in-out infinite alternate;
-}
-
-.hero__logo-orbit {
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    border: 1.5px dashed rgba(56, 189, 248, 0.4);
-    animation: rotateOrbit 18s linear infinite;
-    pointer-events: none;
+.hero__brand-badge {
+    margin-bottom: 4px;
 }
 
 .hero__logo {
-    width: 84px;
-    height: 84px;
-    border-radius: 22px;
+    width: 76px;
+    height: 76px;
+    border-radius: 20px;
     object-fit: cover;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.12);
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border);
+    transition: transform 0.25s ease;
 }
 
 .hero__logo:hover {
-    transform: scale(1.06) rotate(-2deg);
+    transform: scale(1.04);
 }
 
-@keyframes rotateOrbit {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes pulseAura {
-    from { transform: scale(0.92); opacity: 0.6; }
-    to { transform: scale(1.15); opacity: 0.95; }
-}
-
-/* Motto Pills: BUILD • CREATE • GROW */
-.hero__pill-motto {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 18px;
-    background: rgba(14, 165, 233, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    border-radius: 9999px;
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    margin-bottom: 2px;
-}
-
-.motto-tag {
-    font-size: 0.76rem;
+.hero__subtitle-tag {
+    font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 2px;
     color: var(--primary);
     text-transform: uppercase;
 }
 
-.motto-dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 8px var(--accent);
-}
-
-.btn--glow {
-    position: relative;
-    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.15);
-}
-
-.btn--glow:hover {
-    box-shadow: 0 8px 30px rgba(14, 165, 233, 0.55), 0 0 20px rgba(0, 240, 255, 0.4);
-}
-
 .hero__tagline {
     display: inline-block;
     font-size: 0.85rem;
     font-weight: 800;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     color: var(--primary);
     text-transform: uppercase;
 }
 
 .hero__title {
-    font-size: clamp(2rem, 5.5vw, 3.2rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 900;
     line-height: 1.2;
     color: var(--text);
@@ -2135,5 +2033,157 @@ body.lightbox-open {
     border-top: 1px solid rgba(203, 213, 225, 0.85);
     background: #e2e8f0;
 }
+
+/* ===== PAGE LOAD & NAVIGATION TRANSITIONS ===== */
+@view-transition {
+    navigation: auto;
+}
+
+/* Slim Top Navigation Progress Bar */
+.page-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #0284c7, #38bdf8, #818cf8);
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    z-index: 999999;
+    pointer-events: none;
+    opacity: 0;
+    transition: transform 0.28s cubic-bezier(0.1, 0.8, 0.2, 1), opacity 0.15s ease;
+}
+
+[data-theme="dark"] .page-progress-bar {
+    background: linear-gradient(90deg, #0ea5e9, #4ED1FF, #a78bfa);
+    box-shadow: 0 0 10px rgba(78, 209, 255, 0.6);
+}
+
+.page-progress-bar.active {
+    opacity: 1;
+    transform: scaleX(0.72);
+}
+
+.page-progress-bar.complete {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.page-progress-bar.fade-out {
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Page Entrance Animation (Hardware Accelerated on Compositor Thread) */
+main {
+    animation: pageEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: opacity, transform;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth Page Exit when user clicks internal links */
+body.page-is-exiting main {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1), transform 0.15s cubic-bezier(0.4, 0, 1, 1);
+    pointer-events: none;
+}
+
+/* Cross-Document View Transitions (Chromium & Modern Mobile Browsers) */
+::view-transition-old(root) {
+    animation: 0.15s cubic-bezier(0.4, 0, 1, 1) both pageViewOld;
+}
+
+::view-transition-new(root) {
+    animation: 0.22s cubic-bezier(0.16, 1, 0.3, 1) both pageViewNew;
+}
+
+@keyframes pageViewOld {
+    to {
+        opacity: 0;
+        transform: scale(0.995);
+    }
+}
+
+@keyframes pageViewNew {
+    from {
+        opacity: 0;
+        transform: scale(1.005);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Staggered entrance for hero content on load */
+.hero__title,
+.page-hero__title {
+    animation: heroItemIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+}
+
+.hero__desc,
+.page-hero__desc {
+    animation: heroItemIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+}
+
+.hero__actions,
+.page-hero .btn {
+    animation: heroItemIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+@keyframes heroItemIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll reveal helper */
+.fade-up {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile & Low-Power Accessibility (Reduced Motion) */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none !important;
+    }
+    .page-progress-bar {
+        display: none !important;
+    }
+}
+
 
 
